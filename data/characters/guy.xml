@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-character>
+<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
+<character sprite="ourple" icon="guy" color="#a357ab" y="250" antialiasing="false" camy="110" holdTime="6.1">
+	<anim name="idle" anim="Idle"/>
+	<anim name="singDOWN" anim="Down" x="-10" y="-106"/>
+	<anim name="singLEFT" anim="Left" x="34" y="-35"/>
+	<anim name="singUP" anim="Up" x="67" y="87"/>
+	<anim name="singRIGHT" anim="Right" x="-9" y="-41"/>
+	<anim name="singRIGHT-alt" anim="altRight" x="-41" y="-3" fps="30"/>
+	<anim name="singLEFT-alt" anim="altLeft" x="119" y="-3" fps="30"/>
+	<anim name="singDOWN-alt" anim="altDown" x="50" y="30" fps="30"/>
+	<anim name="singUP-alt" anim="altUp" x="90" y="160" fps="30"/>
+</character>

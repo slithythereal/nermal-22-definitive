@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
+<character sprite="angrynermal_assets" icon="nerml" color="#a1a1a1" x="30" y="280" camx="-60" camy="120" holdTime="6.1">
+	<anim name="idle" anim="nermal idle dance"/>
+	<anim name="singLEFT" anim="nermal left pose" x="120" y="0"/>
+	<anim name="singUP" anim="nermal up pose" x="60" y="94"/>
+	<anim name="singDOWN" anim="nermal down pose" x="45" y="-92"/>
+	<anim name="singRIGHT" anim="nermal right pose" x="-10" y="5"/>
+</character>

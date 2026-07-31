@@ -1,0 +1,20 @@
+{
+	"customValues": {
+		"hasWarningScreen": "true"
+	},
+	"color": "#9271FD",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"easy"
+	],
+	"icon": "face",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Nermal",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"variants": [
+		"gay"
+	],
+	"bpm": 145
+}

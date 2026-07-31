@@ -1,0 +1,22 @@
+{
+	"customValues": {
+		"jumpscareNoteType": "scary",
+		"hasWarningScreen": "true",
+		"nermalNoteType": "garfield"
+	},
+	"color": "#9271FD",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"easy"
+	],
+	"icon": "face",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Abuse",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"variants": [
+		"gay"
+	],
+	"bpm": 170
+}

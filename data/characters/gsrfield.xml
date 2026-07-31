@@ -1,0 +1,10 @@
+<!DOCTYPE codename-engine-character>
+<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
+<character sprite="gsrfield" icon="face" color="#a1a1a1" x="-40" y="240" antialiasing="false" camx="-220" camy="-680" holdTime="3.30000000000001">
+	<anim name="idle" anim="idle"/>
+	<anim name="singLEFT" anim="singLEFT" x="-12" y="-9"/>
+	<anim name="singDOWN" anim="singDOWN" x="-103" y="18"/>
+	<anim name="singUP" anim="singUP" x="-77" y="20"/>
+	<anim name="singRIGHT" anim="singRIGHT" x="-93" y="27"/>
+	<anim name="intro" anim="fallIn" x="25" y="1490" fps="25"/>
+</character>

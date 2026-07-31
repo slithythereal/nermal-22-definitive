@@ -1,0 +1,17 @@
+{
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"easy"
+	],
+	"icon": "face",
+	"coopAllowed": false,
+	"color": "#9271FD",
+	"stepsPerBeat": 4,
+	"displayName": "XD",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"variants": [
+		"gay"
+	],
+	"bpm": 145
+}

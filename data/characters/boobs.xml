@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
+<character sprite="bigboobs" icon="boobs" color="#ffffff" x="30" y="280" camx="30" camy="60" holdTime="6.1">
+	<anim name="idle" anim="idle" x="10" y="80"/>
+	<anim name="singLEFT" anim="singLEFT" x="28" y="-19"/>
+	<anim name="singUP" anim="singUP" x="-69" y="113"/>
+	<anim name="singDOWN" anim="singDOWN" x="-15" y="-19"/>
+	<anim name="singRIGHT" anim="singRIGHT" x="-63" y="-16"/>
+</character>

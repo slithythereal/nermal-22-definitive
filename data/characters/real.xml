@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-character>
+<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
+<character sprite="nermol" icon="nermal" color="#aaaaaa" camy="460" holdTime="6.1">
+	<anim name="idle-loop" anim="Dad idle dance" loop="true" indices="10..12,12"/>
+	<anim name="singLEFT-loop" anim="Dad Sing Note LEFT" x="-9" y="10" loop="true" indices="12..15"/>
+	<anim name="singRIGHT-loop" anim="Dad Sing Note RIGHT" x="0" y="27" loop="true" indices="15..18"/>
+	<anim name="singUP-loop" anim="Dad Sing Note UP" x="-6" y="50" loop="true" indices="56..59"/>
+	<anim name="singLEFT" anim="right" x="40" y="-370"/>
+	<anim name="singDOWN" anim="down" x="-6" y="-434"/>
+	<anim name="singUP" anim="up" x="-6" y="-309"/>
+	<anim name="singRIGHT" anim="left" x="-6" y="-370"/>
+	<anim name="idle" anim="idle" x="-5" y="-370"/>
+</character>
