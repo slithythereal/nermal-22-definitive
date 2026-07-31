@@ -1,6 +1,6 @@
 <!DOCTYPE codename-engine-character>
 <!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="nermalBfShotpng" icon="bf" color="#31b0d1" y="350" flipX="true">
+<character sprite="nermalBfShotpng" icon="bf" isPlayer="true" color="#31b0d1" y="350" flipX="true">
 	<anim name="idle" anim="BF idle dance" x="-5" y="0"/>
 	<anim name="singLEFT" anim="BF NOTE LEFT0" x="5" y="-6"/>
 	<anim name="singDOWN" anim="BF NOTE DOWN0" x="-20" y="-51"/>

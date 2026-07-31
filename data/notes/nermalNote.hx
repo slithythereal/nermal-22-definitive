@@ -28,6 +28,8 @@ function create() {
 	nermT.flipY = true;
 }
 
+var timers:Array<FlxTimer> = [];
+
 function onPlayerHit(event) {
 	if (event.noteType == 'nermalNote') {
 		health -= 0.18;
@@ -41,11 +43,21 @@ function onPlayerHit(event) {
 		camGame.shake(0.10, 0.5);
 		camHUD.shake(0.10, 0.5);
 
+		if(timers.length > 1){
+			for(timer in timers){
+				timer.cancel();
+				timers.remove(timer);
+			}
+		}
 		for (i in [nermB, nermT]) {
+			var timer:FlxTimer;
+			FlxTween.cancelTweensOf(i);
 			FlxTween.tween(i, {alpha: 1}, 1, {ease: FlxEase.bounceOut});
-			new FlxTimer().start(7, function(tmr:FlxTimer) {
-				FlxTween.tween(i, {alpha: 0.001}, 1, {ease: FlxEase.bounceOut});
+			timer = new FlxTimer().start(7, function(tmr:FlxTimer) {
+				timers.remove(tmr);
+				FlxTween.tween(i, {alpha: 0.001}, 1, {ease: FlxEase.linear});
 			});
+			timers.push(timer);
 		}
 	}
 }
