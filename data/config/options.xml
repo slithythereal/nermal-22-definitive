@@ -1,0 +1,10 @@
+<!DOCTYPE codename-mod-options>
+<menu name="Nermal Options" desc="NERMAL'S SUPER AWESOME OPTIONS MENU!!!!!1">
+    <menu name="Mechanics" desc="Configure mechanics">
+        <checkbox id="customNermalNotes" name="Custom Nermal Notes" desc="Toggle this to mess with the Nermal Note texture"/>
+        <checkbox id="customJumpscareNotes" name="Custom Jumpscare Notes" desc="Toggle this to mess with the Jumpscare Note texture"/>
+        <checkbox id="noteSwing" name="Gayremix Note Swing" desc="Toggle the swinging hurt notes in Gay mode (probably won't be able to unlock songs with this if off)"/>
+        <checkbox id="pussyMode" name="PUSSY MODE" desc="Disables ALL mechanics (probably won't be able to unlock songs with this)"/>
+    </menu>
+
+</menu>

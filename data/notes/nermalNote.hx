@@ -8,7 +8,7 @@ var customScareMap = [
 ];
 
 function create() {
-	if (PlayState.SONG.meta.customValues?.nermalNoteType != null)
+	if (PlayState.SONG.meta.customValues?.nermalNoteType != null && FlxG.save.data.customNermalNotes)
 		customScare = PlayState.SONG.meta.customValues?.nermalNoteType;
 
 	nermB = new FlxSprite(-400, 500);
@@ -17,7 +17,7 @@ function create() {
 	add(nermT);
 	for (nermal in [nermB, nermT]) {
 		nermal.loadGraphic(Paths.image('game/mech/nermal jumpscare'));
-		if (customScare != null && customScareMap.exists(customScare))
+		if (customScare != null && customScareMap.exists(customScare) && FlxG.save.data.customNermalNotes)
 			if (customScareMap[customScare].jumpScare != null)
 				nermal.loadGraphic(Paths.image('game/mech/' + customScareMap[customScare].jumpScare));
 		nermal.scale.set(2, 0.5);
@@ -31,11 +31,11 @@ function create() {
 var timers:Array<FlxTimer> = [];
 
 function onPlayerHit(event) {
-	if (event.noteType == 'nermalNote') {
+	if (event.noteType == 'nermalNote' && !FlxG.save.data.pussyMode) {
 		health -= 0.18;
 
 		var soundID:String = 'wow';
-		if (customScare != null)
+		if (customScare != null && FlxG.save.data.customNermalNotes)
 			if (customScareMap[customScare].sound != null)
 				soundID = customScareMap[customScare].sound;
 		FlxG.sound.play(Paths.sound(soundID), 1);
@@ -74,9 +74,14 @@ function onPlayerMiss(event) {
 }
 
 function onNoteCreation(event) {
-	if (event.noteType == 'nermalNote' && customScare != null) {
+	if (event.noteType == 'nermalNote' && customScare != null && FlxG.save.data.customNermalNotes) {
 		if (customScareMap.exists(customScare)) {
 			event.noteSprite = 'game/notes/' + customScareMap[customScare].noteSkin;
 		}
+	}
+
+	if(event.noteType == 'nermalNote' && FlxG.save.data.pussyMode){
+		event.note.strumTime -= 999999;
+		event.note.exists = event.note.active = event.note.visible = false;
 	}
 }

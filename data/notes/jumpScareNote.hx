@@ -2,7 +2,7 @@ importScript('data/scripts/HandyDandy.hx');
 var timer:FlxTimer;
 
 function onPlayerHit(event) {
-	if (event.noteType == 'jumpScareNote') {
+	if (event.noteType == 'jumpScareNote' && !FlxG.save.data.pussyMode) {
 		health -= 1;
 		var garf:FlxSprite = new FlxSprite(50, 0);
 		garf.loadGraphic(Paths.image('game/mech/scarygarfield'));
@@ -43,6 +43,13 @@ function onNoteCreation(event) {
 				event.noteSprite = 'game/notes/jumpscareNoteAsset2';
 			default:
 				event.noteSprite = 'game/notes/jumpscareNoteAsset1';
+		}
+		if (!FlxG.save.data.customJumpscareNotes)
+			event.noteSprite = 'game/notes/jumpscareNoteAsset1';
+
+		if (FlxG.save.data.pussyMode) {
+			event.note.strumTime -= 999999;
+			event.note.exists = event.note.active = event.note.visible = false;
 		}
 	}
 }
