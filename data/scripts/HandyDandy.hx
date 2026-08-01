@@ -46,5 +46,27 @@ public var HandyDandy:T = {
 	watch: function(obj:FlxObject) {
 		FlxG.watch.add(obj, "x");
 		FlxG.watch.add(obj, "y");
+	},
+	tweenHudElements: function(alpha:Float, time:Float) {
+		var game = PlayState.instance;
+		for (i in [
+			game.iconP1,
+			game.iconP2,
+			game.healthBarBG,
+			game.healthBar,
+			game.scoreTxt,
+			game.accuracyTxt,
+			game.missesTxt
+		]) {
+			FlxTween.tween(i, {alpha: alpha}, time, {ease: FlxEase.linear});
+		}
+
+		for (strum in PlayState.instance.strumLines) {
+			for (i => strumLine in strumLines.members) {
+				for (strumNote in strumLine.members)
+					FlxTween.tween(strumNote, {alpha: alpha}, time, {ease: FlxEase.linear});
+			}
+		}
 	}
 }
+

@@ -1,16 +1,22 @@
 {
+	"customValues": {
+		"hasWarningScreen": "true",
+		"jumpscareNoteType": "scary",
+		"noteSwing": "true",
+		"nermalNoteType": "garfield"
+	},
+	"color": "#9271FD",
+	"instSuffix": "-gay",
 	"opponentModeAllowed": false,
 	"difficulties": [
 		"gay"
 	],
 	"icon": "face",
 	"coopAllowed": false,
-	"color": "#9271FD",
 	"stepsPerBeat": 4,
 	"displayName": "Abuse GayRemix",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"bpm": 170,
-	"instSuffix": "-gay",
-	"vocalsSuffix": "-gay"
+	"vocalsSuffix": "-gay",
+	"bpm": 170
 }

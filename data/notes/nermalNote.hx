@@ -1,4 +1,3 @@
-importScript('data/scripts/HandyDandy.hx');
 var nermB:FlxSprite;
 var nermT:FlxSprite;
 var customScare:String = null;
@@ -43,8 +42,8 @@ function onPlayerHit(event) {
 		camGame.shake(0.10, 0.5);
 		camHUD.shake(0.10, 0.5);
 
-		if(timers.length > 1){
-			for(timer in timers){
+		if (timers.length > 1) {
+			for (timer in timers) {
 				timer.cancel();
 				timers.remove(timer);
 			}
@@ -80,8 +79,56 @@ function onNoteCreation(event) {
 		}
 	}
 
-	if(event.noteType == 'nermalNote' && FlxG.save.data.pussyMode){
+	if (event.noteType == 'nermalNote' && FlxG.save.data.pussyMode) {
 		event.note.strumTime -= 999999;
 		event.note.exists = event.note.active = event.note.visible = false;
 	}
 }
+
+function update(elapsed:Float) {}
+/*
+	function onNoteUpdate(e:NoteUpdateEvent) {
+	if (FlxG.save.data.noteSwing && !FlxG.save.data.pussyMode) {
+		var note:Note = e.note;
+		trace("works");
+
+		if (note.noteType != "nermalNote")
+			return;
+
+		
+			if(PlayState.SONG.meta.customValues?.noteSwing == 'true'){
+				note.updateNotesPosY = true;
+				note.updateNotesPosX = true;
+				//note.y = note.y / -1.1;
+
+				note.x = note.y * Math.sin(Conductor.songPosition / 100) * 3;
+					//	setPropertyFromGroup('notes', i, 'offsetX', getPropertyFromGroup('notes', i, 'y') * math.sin(getPropertyFromClass('Conductor', 'songPosition') / 100) * 0.3)
+
+		}
+	}
+}*/
+/*
+	* function onUpdate(elapsed)
+		--note stuff
+		for i = 0, getProperty('notes.length')-1 do
+			if getPropertyFromGroup('notes', i, 'noteType') == 'nermalNote' then
+				if getPropertyFromGroup('notes', i, 'strumTime') - 1500 > (curStep * stepCrochet) then
+					setPropertyFromGroup('notes', i, 'visible', false)
+				else
+					setPropertyFromGroup('notes', i, 'visible', true)
+				end
+				
+				--does note tweens on the gay difficulty
+				if getProperty('storyDifficultyText') == 'Gay' then
+					if dadName == 'garfield' then
+						setPropertyFromGroup('notes', i, 'offsetY', getPropertyFromGroup('notes', i, 'y') / -1 * math.abs(math.sin(getPropertyFromClass('Conductor', 'songPosition') / 100) * 1))
+					else
+						setPropertyFromGroup('notes', i, 'offsetY', getPropertyFromGroup('notes', i, 'y') / -1.1)
+					end
+					
+					setPropertyFromGroup('notes', i, 'offsetX', getPropertyFromGroup('notes', i, 'y') * math.sin(getPropertyFromClass('Conductor', 'songPosition') / 100) * 0.3)
+				end
+			end
+		end
+	end
+ */
