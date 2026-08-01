@@ -1,6 +1,6 @@
 function onStartCountdown(event) {
 	if (PlayState.isStoryMode) {
-		event.cancel();
+		/*event.cancel();
 		focusOn(PlayState.instance.dad);
 		PlayState.instance.inCutscene = true;
 		var sub:ModSubState = new ModSubState('nermal/substate/WarningScreen', {
@@ -11,7 +11,7 @@ function onStartCountdown(event) {
 			}
 		});
 		sub.cameras = [camHUD];
-		openSubState(sub);
+		openSubState(sub);*/
 	}
 }
 
