@@ -1,0 +1,15 @@
+{
+	"customValues": {},
+	"color": "#9271FD",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"normal"
+	],
+	"icon": "guy",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "cutes",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 180
+}

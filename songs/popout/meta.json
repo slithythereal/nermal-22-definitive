@@ -1,0 +1,15 @@
+{
+	"customValues": {},
+	"color": "#9271FD",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"normal"
+	],
+	"icon": "garield",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "popout",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 160
+}

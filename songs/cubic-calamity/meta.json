@@ -1,0 +1,15 @@
+{
+	"customValues": {},
+	"color": "#9271FD",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"easy"
+	],
+	"icon": "nerml",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Cubic Calamity",
+	"needsVoices": false,
+	"beatsPerMeasure": 4,
+	"bpm": 155
+}
