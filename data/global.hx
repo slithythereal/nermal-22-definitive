@@ -24,5 +24,7 @@ function new(){
         FlxG.save.data.noteSwing = true;
     if(FlxG.save.data.pussyMode == null)
         FlxG.save.data.pussyMode = false;
+    if(FlxG.save.data.axelIcons == null)
+        FlxG.save.data.axelIcons = false;
         
 }

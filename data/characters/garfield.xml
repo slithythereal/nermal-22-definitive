@@ -1,6 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="garfield" icon="garield" color="#ff9933" camx="100" camy="200" holdTime="6.1">
+<character camx="100" camy="200" icon="garield" color="#FF9932" holdTime="6.1" axelIcon="garield">
 	<anim name="idle" anim="garfeild idle dance" x="-110" y="-220"/>
 	<anim name="singLEFT" anim="garfield left pose" x="210" y="-230"/>
 	<anim name="singDOWN" anim="garfield down pose" x="30" y="-380"/>

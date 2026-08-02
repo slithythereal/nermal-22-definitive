@@ -1,3 +1,6 @@
+import funkin.backend.system.Conductor;
+import Math;
+
 var nermB:FlxSprite;
 var nermT:FlxSprite;
 var customScare:String = null;
@@ -25,6 +28,11 @@ function create() {
 		nermal.alpha = 0.001;
 	}
 	nermT.flipY = true;
+
+	if (FlxG.save.data.noteSwing && !FlxG.save.data.pussyMode) {
+		strumLines.members[0].onNoteUpdate.add(onNoteUpdate);
+		strumLines.members[1].onNoteUpdate.add(onNoteUpdate);
+	}
 }
 
 var timers:Array<FlxTimer> = [];
@@ -85,7 +93,27 @@ function onNoteCreation(event) {
 	}
 }
 
-function update(elapsed:Float) {}
+/*function postUpdate(elapsed:Float) {
+	for (note in strumLines.notes) {
+		if (note.noteType == 'nermalNote') {
+			note.updateNotesPosY = true;
+			note.updateNotesPosX = true;
+			note.offset.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+			note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+		}
+	}
+}*/
+
+function onNoteUpdate(e:NoteUpdateEvent) {
+	var note:Note = e.note;
+
+	if (note.noteType == 'nermalNote' && PlayState.SONG.meta.customValues?.noteSwing == 'true') {
+		note.updateNotesPosY = true;
+		note.updateNotesPosX = true;
+		note.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+		note.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+	}
+}
 /*
 	function onNoteUpdate(e:NoteUpdateEvent) {
 	if (FlxG.save.data.noteSwing && !FlxG.save.data.pussyMode) {
@@ -97,8 +125,7 @@ function update(elapsed:Float) {}
 
 		
 			if(PlayState.SONG.meta.customValues?.noteSwing == 'true'){
-				note.updateNotesPosY = true;
-				note.updateNotesPosX = true;
+
 				//note.y = note.y / -1.1;
 
 				note.x = note.y * Math.sin(Conductor.songPosition / 100) * 3;
