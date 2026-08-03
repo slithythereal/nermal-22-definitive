@@ -1,5 +1,7 @@
 {
-	"customValues": {},
+	"customValues": {
+		"flipHealth": "true"
+	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [
