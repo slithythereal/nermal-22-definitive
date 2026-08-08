@@ -6,5 +6,6 @@
         <checkbox id="noteSwing" name="Gayremix Note Swing" desc="Toggle the swinging hurt notes in Gay mode (probably won't be able to unlock songs with this if off)"/>
         <checkbox id="pussyMode" name="PUSSY MODE" desc="Disables ALL mechanics (probably won't be able to unlock songs with this)"/>
     </menu>
+    <checkbox id="middlescroll" name="middlescroll" desc="middlescrol"/>
     <checkbox id="axelIcons" name="Scrapped V2 Icons" desc="Axelmao made icons for scrapped Nermal v2, here you can toggle them as you please! (NOT ALL CHARACTERS HAVE THESE)"/>
 </menu>

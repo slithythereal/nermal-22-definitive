@@ -1,10 +1,3 @@
-var camOther:FlxCamera;
-
-function create() {
-	camOther = new FlxCamera();
-	camOther.bgColor = FlxColor.TRANSPARENT;
-	FlxG.cameras.add(camOther, false);
-}
 
 function postCreate() {
 	sl.scale.set(FlxG.width / 883, FlxG.height / 600);
