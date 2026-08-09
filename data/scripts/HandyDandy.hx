@@ -14,8 +14,8 @@ public var HandyDandy:T = {
 			sprite: null,
 			chars: [null, null, null],
 			songs: songArray,
-			difficulties: ["hard"]
-		}, "hard");
+			difficulties: ["easy"]
+		}, "easy");
 
 		FlxG.switchState(new PlayState());
 	},

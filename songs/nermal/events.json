@@ -1,0 +1,1 @@
+{"events":[{"params":[0,"shootPOSE",true,"NONE"],"time":84000,"name":"Play Animation"},{"params":[0,true,4,"CLASSIC","In"],"name":"Camera Movement","time":84413.7931034483},{"params":["bfDies",""],"time":84413.7931034483,"name":"HScript Call"}]}

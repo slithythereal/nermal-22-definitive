@@ -19,6 +19,11 @@ var warnMap = [
 		text.updateHitbox();
 		sprGrp.add(text);
 		// add gay warn
+        /**
+         *     makeLuaSprite('mechWarn6', 'mechanicsWarning/gayModeWarning', 150, 600)
+        setObjectCamera('mechWarn6','other')
+        scaleObject('mechWarn6', 0.7, 0.7)
+        */
 	},
 	'abuse' => function() {
 		var notePic1:FlxSprite = new FlxSprite(550, 400);

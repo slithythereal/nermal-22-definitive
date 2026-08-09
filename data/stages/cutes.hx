@@ -1,4 +1,3 @@
-
 function postCreate() {
 	sl.scale.set(FlxG.width / 883, FlxG.height / 600);
 	sl.updateHitbox();
@@ -24,14 +23,16 @@ function onStrumCreation(event) {
 function garfieldFall() {
 	gf.visible = true;
 	gf.playAnim('intro');
-	for (strum in strumLines) {
-		for (i => strumLine in strumLines.members) {
-			if (i == 2) {
-				strumLine.visible = true;
+	if (!FlxG.save.data.middlescroll) {
+		for (strum in strumLines) {
+			for (i => strumLine in strumLines.members) {
+				if (i == 2) {
+					strumLine.visible = true;
 
-				for (strumNote in strumLine.members) {
-					strumNote.alpha = 0;
-					FlxTween.tween(strumNote, {alpha: 1}, 0.75, {ease: FlxEase.cubeOut});
+					for (strumNote in strumLine.members) {
+						strumNote.alpha = 0;
+						FlxTween.tween(strumNote, {alpha: 1}, 0.75, {ease: FlxEase.cubeOut});
+					}
 				}
 			}
 		}
