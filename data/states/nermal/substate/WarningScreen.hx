@@ -7,69 +7,45 @@ var sprGrp:FlxTypedGroup<FlxSprite>;
 
 var warnMap = [
 	'nermal' => function() {
-		var notePic:FlxSprite = new FlxSprite(850, 200);
-		notePic.loadGraphic(Paths.image('warning/nermnoteWarningImage'));
-		notePic.scale.set(2, 2);
-		notePic.updateHitbox();
+		var notePic:FlxSprite = makeImage(850, 200, 2, 'nermnoteWarningImage');
 		sprGrp.add(notePic);
 
-		var text:FlxSprite = new FlxSprite(0, 0);
-		text.loadGraphic(Paths.image('warning/nermnoteWarningText'));
-		text.scale.set(1.3, 1.3);
-		text.updateHitbox();
+		var text:FlxSprite = makeImage(0, 0, 1.3, 'nermnoteWarningText');
 		sprGrp.add(text);
 
 		if (PlayState.difficulty == 'gay') {
-			var gayWarn:FlxSprite = new FlxSprite(150, 600);
-			gayWarn.loadGraphic(Paths.image('warning/gayModeWarning'));
-			gayWarn.scale.set(0.7, 0.7);
-			gayWarn.updateHitbox();
+			var gayWarn:FlxSprite = makeImage(150, 600, 0.7, 'gayModeWarning');
 			sprGrp.add(gayWarn);
 		}
 	},
 	'abuse' => function() {
-		var notePic1:FlxSprite = new FlxSprite(550, 400);
-		notePic1.loadGraphic(Paths.image('warning/nermnoteWarningImage'));
-		notePic1.scale.set(2, 2);
-		notePic1.updateHitbox();
+		var notePic1:FlxSprite = makeImage(550, 400, 2, 'nermnoteWarningImage');
 		notePic1.scale.set(1.2, 1.2);
 		sprGrp.add(notePic1);
 
-		var notePic:FlxSprite = new FlxSprite(1000, 400);
-		notePic.loadGraphic(Paths.image('warning/garfnoteWarningImage'));
-		notePic.scale.set(2, 2);
-		notePic.updateHitbox();
+		var notePic:FlxSprite = makeImage(1000, 400, 2, 'garfnoteWarningImage');
 		notePic.scale.set(1.2, 1.2);
-
 		sprGrp.add(notePic);
 
-		var text:FlxSprite = new FlxSprite(0, 0);
-		text.loadGraphic(Paths.image('warning/abuseWarningText'));
-		text.scale.set(1.3, 1.3);
-		text.updateHitbox();
+		var text:FlxSprite = makeImage(0, 0, 1.3, 'abuseWarningText');
 		sprGrp.add(text);
 
-		var arrow:FlxSprite = new FlxSprite(825, 475);
-		arrow.loadGraphic(Paths.image('warning/clickbaitarrow'));
-		arrow.scale.set(0.5, 0.5);
-		arrow.updateHitbox();
+		var arrow:FlxSprite = makeImage(825, 475, 0.5, 'clickbaitarrow');
 		sprGrp.add(arrow);
 
-		var scary:FlxSprite = new FlxSprite(850, 100);
-		scary.loadGraphic(Paths.image('warning/jumpscareNoteWarning'));
-		scary.scale.set(2, 2);
-		scary.updateHitbox();
+		var scary:FlxSprite = makeImage(850, 100, 2, 'jumpscareNoteWarning');
 		sprGrp.add(scary);
 	}
 ];
 
 function postCreate() {
-	// add(parentDisabler = new FunkinParentDisabler());
-	trace("open");
 	if (this.data.song != null)
 		song = this.data.song.toLowerCase();
 	sprGrp = new FlxTypedGroup<FlxSprite>();
 	add(sprGrp);
+
+	if(!FlxG.save.data.warningScreenNN22)
+		endWarn();
 
 	var black:FlxSprite = new FlxSprite(-100, 0);
 	black.makeGraphic(1500, 1500, FlxColor.BLACK);
@@ -81,7 +57,19 @@ function postCreate() {
 
 function postUpdate(elapsed:Float) {
 	if (controls.ACCEPT) {
-		this.data.onClose != null ? this.data.onClose() : null;
-		close();
+		endWarn();
 	}
+}
+
+function endWarn() {
+	this.data.onClose != null ? this.data.onClose() : null;
+	close();
+}
+
+function makeImage(x:Float, y:Float, scl:Float, graphic:String) {
+	var spr:FlxSprite = new FlxSprite(x, y);
+	spr.loadGraphic(Paths.image('warning/' + graphic));
+	spr.scale.set(scl, scl);
+	spr.updateHitbox();
+	return spr;
 }

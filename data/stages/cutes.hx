@@ -51,9 +51,8 @@ function garfieldFall() {
 	gf.playAnim('intro');
 	for (strum in strumLines) {
 		for (i => strumLine in strumLines.members) {
-			if (i == 2) {
+			if (i == 2 && FlxG.save.data.gsrfieldNoteVisible) {
 				strumLine.visible = true;
-
 				for (strumNote in strumLine.members) {
 					strumNote.alpha = 0;
 					FlxTween.tween(strumNote, {alpha: (FlxG.save.data.middlescroll ? 0.5 : 1)}, 0.75, {ease: FlxEase.cubeOut});

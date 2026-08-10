@@ -47,7 +47,7 @@ function onNoteCreation(event) {
 		if (!FlxG.save.data.customJumpscareNotes)
 			event.noteSprite = 'game/notes/jumpscareNoteAsset1';
 
-		if (FlxG.save.data.pussyMode) {
+		if (FlxG.save.data.pussyMode || FlxG.save.data.disableJumpscareNotes) {
 			event.note.strumTime -= 999999;
 			event.note.exists = event.note.active = event.note.visible = false;
 		}

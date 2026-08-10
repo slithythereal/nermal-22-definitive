@@ -1,5 +1,6 @@
 {
 	"customValues": {
+		"disableV2Ratings": "true",
 		"flipHealth": "true"
 	},
 	"color": "#9271FD",

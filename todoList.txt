@@ -5,5 +5,6 @@
 - story mode textures
 - abuse cinematic effect
 - add game over screens (toggleable)
-- add dumpster and freeplay unlock system
+- add freeplay unlock after you beat week
+- add recharts
 - Customize Main menu, freeplay, and story menus (with gay diff)

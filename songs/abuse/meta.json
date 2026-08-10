@@ -1,13 +1,14 @@
 {
 	"customValues": {
-		"jumpscareNoteType": "scary",
 		"hasWarningScreen": "true",
+		"jumpscareNoteType": "scary",
 		"nermalNoteType": "garfield"
 	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [
-		"easy"
+		"easy",
+		"easy-rechart"
 	],
 	"icon": "garield",
 	"coopAllowed": false,

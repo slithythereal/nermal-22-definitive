@@ -81,15 +81,15 @@ function onPlayerMiss(event) {
 }
 
 function onNoteCreation(event) {
-	if (event.noteType == 'nermalNote' && customScare != null && FlxG.save.data.customNermalNotes) {
-		if (customScareMap.exists(customScare)) {
-			event.noteSprite = 'game/notes/' + customScareMap[customScare].noteSkin;
-		}
-	}
+	if (event.noteType == 'nermalNote') {
+		if (customScare != null && FlxG.save.data.customNermalNotes)
+			if (customScareMap.exists(customScare))
+				event.noteSprite = 'game/notes/' + customScareMap[customScare].noteSkin;
 
-	if (event.noteType == 'nermalNote' && FlxG.save.data.pussyMode) {
-		event.note.strumTime -= 999999;
-		event.note.exists = event.note.active = event.note.visible = false;
+		if (FlxG.save.data.pussyMode || FlxG.save.data.disableNermalNotes) {
+			event.note.strumTime -= 999999;
+			event.note.exists = event.note.active = event.note.visible = false;
+		}
 	}
 }
 
@@ -103,7 +103,6 @@ function onNoteCreation(event) {
 		}
 	}
 }*/
-
 function onNoteUpdate(e:NoteUpdateEvent) {
 	var note:Note = e.note;
 

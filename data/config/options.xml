@@ -1,13 +1,34 @@
 <!DOCTYPE codename-mod-options>
 <menu name="Nermal Options" desc="NERMAL'S SUPER AWESOME OPTIONS MENU!!!!!1">
     <menu name="Mechanics" desc="Configure mechanics">
-        <checkbox id="customNermalNotes" name="Custom Nermal Notes" desc="Toggle this to mess with the Nermal Note texture"/>
-        <checkbox id="customJumpscareNotes" name="Custom Jumpscare Notes" desc="Toggle this to mess with the Jumpscare Note texture"/>
-        <checkbox id="noteSwing" name="Gayremix Note Swing" desc="Toggle the swinging hurt notes in Gay mode (probably won't be able to unlock songs with this if off)"/>
-        <checkbox id="disableNermalNotes" name="No Nermal Notes" desc="Disables Nermal Notes (probably won't be able to unlock songs with this)"/>
-        <checkbox id="disableJumpscareNotes" name="No Jumpscare Notes" desc="Disables Jumpscare Notes (probably won't be able to unlock songs with this)"/>
-        <checkbox id="pussyMode" name="PUSSY MODE" desc="Disables ALL mechanics (probably won't be able to unlock songs with this)"/>
+        <checkbox id="warningScreenNN22" name="Warning Screen"
+            desc="Toggles on/off the mechanic warning screen for story mode" />
+        <checkbox id="customNermalNotes" name="Custom Nermal Notes"
+            desc="Toggle this to mess with the Nermal Note texture" />
+        <checkbox id="customJumpscareNotes" name="Custom Jumpscare Notes"
+            desc="Toggle this to mess with the Jumpscare Note texture" />
+        <checkbox id="noteSwing" name="Gayremix Note Swing"
+            desc="Toggle the swinging hurt notes in Gay mode (probably won't be able to unlock songs with this if off)" />
+        <checkbox id="cubicCameraShake" name="Cubic Camera Shake"
+            desc="Toggles the intensive camera shaking in Cubic Calamity" />
+        <checkbox id="cubicCloseGame" name="Cubic Close Game"
+            desc="Toggles the Cubic Calamity game close when the song ends" />
+        <checkbox id="disableNermalNotes" name="No Nermal Notes"
+            desc="Disables Nermal Notes (probably won't be able to unlock songs with this)" />
+        <checkbox id="disableJumpscareNotes" name="No Jumpscare Notes"
+            desc="Disables Jumpscare Notes (probably won't be able to unlock songs with this)" />
+        <checkbox id="pussyMode" name="PUSSY MODE"
+            desc="Disables ALL mechanics (probably won't be able to unlock songs with this)" />
     </menu>
-    <checkbox id="middlescroll" name="middlescroll" desc="middlescrol"/>
-    <checkbox id="axelIcons" name="Scrapped V2 Icons" desc="Axelmao made icons for scrapped Nermal v2, here you can toggle them as you please! (NOT ALL CHARACTERS HAVE THESE)"/>
+    <menu name="Visual" desc="Configure visual stuff here">
+        <checkbox id="middlescroll" name="middlescroll" desc="middlescrol" />
+        <checkbox id="psychHUD" name="Psych Engine HUD"
+            desc="A full recreation of the Psych Engine HUD, now toggleable if you so please" />
+        <checkbox id="gsrfieldNoteVisible" name="Cutes Garfield Notes"
+            desc="Toggles the visibility on Garfield's notes in 'Cutes'" />
+        <checkbox id="v2Ratings" name="Scrapped V2 Ratings"
+            desc="Here are some scrapped ratings assets that you can toggle on! (Will not work in 'Cutes')" />
+        <checkbox id="axelIcons" name="Scrapped V2 Icons"
+            desc="Axelmao made icons for scrapped Nermal v2, here you can toggle them as you please! (NOT ALL CHARACTERS HAVE THESE)" />
+    </menu>
 </menu>

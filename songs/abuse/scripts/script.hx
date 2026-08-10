@@ -24,11 +24,9 @@ function create() {
 
 function postCreate() {
 	if (PlayState.isStoryMode && !PlayState.seenCutscene) {
-		game.camHUD.visible = false;
+		game.camHUD.visible = persistentUpdate = false;
 		focusOn(dad);
-		inCutscene = true;
-		persistentUpdate = false;
-		persistentDraw = true;
+		inCutscene = persistentDraw = true;
 
 		new FlxTimer().start(1, function(_:FlxTimer) {
 			garfJumpIn.visible = true;

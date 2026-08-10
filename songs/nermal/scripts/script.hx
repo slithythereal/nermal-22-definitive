@@ -8,14 +8,11 @@ function focusOn(char, snap:Bool = false) {
 function postCreate() {
 	if (PlayState.isStoryMode && !PlayState.seenCutscene) {
 		focusOn(dad);
-		inCutscene = true;
+		inCutscene = persistentDraw = true;
 		persistentUpdate = false;
-		persistentDraw = true;
 		var modState:ModSubState = new ModSubState('nermal/substate/WarningScreen', {song: curSong.toLowerCase(), onClose: function(){
 			inCutscene = false;
-			PlayState.seenCutscene = true;
-			persistentUpdate = true;
-			persistentDraw = true;
+			PlayState.seenCutscene = persistentUpdate = persistentDraw = true;
 			startCountdown();
 		}});
 		modState.cameras = [camOther];
