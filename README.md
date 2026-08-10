@@ -52,6 +52,9 @@ The old mod is highly outdated, and I have significantly improved as a programme
 
 Plus, there are some assets that we made during V2 development that I would've also loved to see in 2022 Nermal, such as the rating text and the icon remakes. (BOTH OF THESE ARE TOGGLEABLE IN OPTIONS)
 
+### Will the Christmas Side-Date get a recode or get added here?
+This one is a huge maybe. I can definitely do it; however, I did not work on the Christmas Side-Date. If I were to do it, it'd probably be the only and last update to this repository outside of bugfixes before I publicly archive it.
+
 ### Why Codename Engine?
 - First: This is the most up-to-date FNF engine that I spent the most time programming in (outside of pre-1.0 Psych).
 - Second: Psych Engine's `.lua` handler was very unoptimized. Abuse would use like 800mb of RAM, now it uses less than 100mb on `.hx`.
