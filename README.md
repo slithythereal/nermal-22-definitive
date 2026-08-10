@@ -39,7 +39,7 @@ I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues
 - Gayremix Note Swing: Toggles the swinging hurt notes in the Gay remixes (can't unlock freeplay songs with this toggled off)
 - Cubic Camera Shake: Toggles the intensive camera shaking in "Cubic Calamity"
 - Cubic Close Game: Toggles the "Cubic Calamity" game close when the song ends
-- Pussy Mode: Disables all mechanics (can't unlock freeplay songs with this setting on)
+- Pussy Mode: Disables all mechanics (can't unlock freeplay songs with this setting on) - the joke is "pussy cat"
 ##### Visual Settings
 - Middlescroll: An old feature from Psych Engine, puts your notes in the middle, spreads the opponent notes apart on both sides of the screen while turning their `alpha` values down to `0.5`
 - Cutes Garfield Notes: Toggles the visibility of Garfield's notes in "Cutes"
