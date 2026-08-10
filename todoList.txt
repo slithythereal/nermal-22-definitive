@@ -5,8 +5,6 @@
 - Title screen
 - story mode textures
 - abuse cinematic effect
-- add garfield notes for middlescroll (put them in between dad and bf notes)
-- add ourple guy v2 hud and rating textures
 - add camera shake for boxnermal
 - find out how to load song viariants in a week
 - add dumpster and freeplay unlock system

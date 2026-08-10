@@ -1,0 +1,3 @@
+- A bug in "Cutes" where I have the `ratingPrefix` set to `game/ourpleUI` but it does not just do the ratings, it does the numbers too which means I had to copy the base game number assets to the mod folder
+    - TODO: fix so I don't have to copy base game numbers to the mod folder
+- 
