@@ -30,6 +30,16 @@ Believe it or not, but I am NOT a perfect programmer. There are some bugs and is
 I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues tab.
 
 ## Questions
+### What is new in this recode?
+- Fully rewritten code transfers (`.lua` -> `.hx`)
+- Fully custom UI for the Main Menu, Story Menu, and Freeplay Menu
+- A complete rework of the Warning Screens for the mechanics. Now static `ModSubState`s instead of graphics that show when the song starts
+- Recharts of every single song (except gay remixes), optional to play
+- New visible strums and notes for Garfield in Cutes
+- Properly offsetted Angry Nermal left and right poses
+- Old V2 assets for Icons and Ratings, optional toggle
+- Freeplay lock until you beat the main week
+- LOTS OF ACCESSIBILITY SETTINGS
 ### What settings are toggleable in Options?
 ##### For Mechanics
 - Custom Nermal Notes: Toggle for the Nermal Note texture
