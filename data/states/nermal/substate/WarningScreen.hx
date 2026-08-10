@@ -18,12 +18,14 @@ var warnMap = [
 		text.scale.set(1.3, 1.3);
 		text.updateHitbox();
 		sprGrp.add(text);
-		// add gay warn
-        /**
-         *     makeLuaSprite('mechWarn6', 'mechanicsWarning/gayModeWarning', 150, 600)
-        setObjectCamera('mechWarn6','other')
-        scaleObject('mechWarn6', 0.7, 0.7)
-        */
+
+		if (PlayState.difficulty == 'gay') {
+			var gayWarn:FlxSprite = new FlxSprite(150, 600);
+			gayWarn.loadGraphic(Paths.image('warning/gayModeWarning'));
+			gayWarn.scale.set(0.7, 0.7);
+			gayWarn.updateHitbox();
+			sprGrp.add(gayWarn);
+		}
 	},
 	'abuse' => function() {
 		var notePic1:FlxSprite = new FlxSprite(550, 400);
@@ -31,7 +33,6 @@ var warnMap = [
 		notePic1.scale.set(2, 2);
 		notePic1.updateHitbox();
 		notePic1.scale.set(1.2, 1.2);
-
 		sprGrp.add(notePic1);
 
 		var notePic:FlxSprite = new FlxSprite(1000, 400);

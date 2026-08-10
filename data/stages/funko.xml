@@ -1,8 +1,0 @@
-<!DOCTYPE codename-engine-stage>
-<stage folder="stages/" name="funko" zoom="1">
-    <sprite x="-170" y="-200" sprite="garffunko" scale="1.5" name="garf" />
-    <dad x="0" y="0" />
-    <boyfriend x="0" y="0" />
-    <girlfriend x="0" y="0" />
-    <ratings x="400" y="-250"/>
-</stage>

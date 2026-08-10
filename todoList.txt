@@ -1,11 +1,10 @@
 - Get gaymode note swing working
 - add customizable settings that disable each note
-- finish popout
 - add cam zooms for hi
 - Title screen
 - story mode textures
 - abuse cinematic effect
+- add game over screens (toggleable)
 - add camera shake for boxnermal
-- find out how to load song viariants in a week
 - add dumpster and freeplay unlock system
-- Customize Main menu, freeplay, and story menus
+- Customize Main menu, freeplay, and story menus (with gay diff)

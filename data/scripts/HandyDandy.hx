@@ -2,20 +2,22 @@ import funkin.game.PlayState;
 
 public var HandyDandy:T = {
 	// can use whenever
-	loadWeek: function(weekSongs:Array<String>, name:String, id:String) {
+	loadWeek: function(weekSongs:Array<String>, name:String, id:String, difficulty:String, variation:String) {
 		var songArray:Array<WeekSong> = [];
 		PlayState.deathCounter = 0;
 
+		if(variation == null)
+			variation = null;
 		for (song in weekSongs)
-			songArray.push({name: song, hide: false});
+			songArray.push({name: song, hide: false, variation: variation});
 		PlayState.loadWeek({
 			name: name,
 			id: id,
 			sprite: null,
 			chars: [null, null, null],
 			songs: songArray,
-			difficulties: ["easy"]
-		}, "easy");
+			difficulties: [difficulty]
+		}, difficulty);
 
 		FlxG.switchState(new PlayState());
 	},
@@ -69,4 +71,3 @@ public var HandyDandy:T = {
 		}
 	}
 }
-

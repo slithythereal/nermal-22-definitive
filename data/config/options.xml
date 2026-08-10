@@ -4,6 +4,8 @@
         <checkbox id="customNermalNotes" name="Custom Nermal Notes" desc="Toggle this to mess with the Nermal Note texture"/>
         <checkbox id="customJumpscareNotes" name="Custom Jumpscare Notes" desc="Toggle this to mess with the Jumpscare Note texture"/>
         <checkbox id="noteSwing" name="Gayremix Note Swing" desc="Toggle the swinging hurt notes in Gay mode (probably won't be able to unlock songs with this if off)"/>
+        <checkbox id="disableNermalNotes" name="No Nermal Notes" desc="Disables Nermal Notes (probably won't be able to unlock songs with this)"/>
+        <checkbox id="disableJumpscareNotes" name="No Jumpscare Notes" desc="Disables Jumpscare Notes (probably won't be able to unlock songs with this)"/>
         <checkbox id="pussyMode" name="PUSSY MODE" desc="Disables ALL mechanics (probably won't be able to unlock songs with this)"/>
     </menu>
     <checkbox id="middlescroll" name="middlescroll" desc="middlescrol"/>

@@ -1,5 +1,7 @@
 {
-	"customValues": {},
+	"customValues": {
+		"forceMiddlescroll": "true"
+	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [

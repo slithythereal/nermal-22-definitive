@@ -1,10 +1,9 @@
 var playerStrumPos:Array<Float> = [300, 428, 732, 860];
 
 function postCreate() {
-	dad.visible = false; // WHY DOES THIS WORK
-
-	for (i in [iconP1, iconP2, healthBarBG, healthBar/*, scoreTxt, accuracyTxt, missesTxt*/])
-		i.visible = false;
+    //garf.visible = true;
+	stage.stageSprites['garf'].visible = true;
+    dad.visible = false; // WHY DOES THIS WORK
 	for (i => strumLine in strumLines.members) // ...ig...
 		if (i == 0)
 			for (i in 0...4)

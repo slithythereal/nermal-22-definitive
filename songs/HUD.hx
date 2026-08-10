@@ -7,7 +7,14 @@ function create() {
 }
 
 function postCreate() {
-	if (FlxG.save.data.middlescroll) {
+	if (FlxG.save.data.axelIcons) {
+		if (dad.xml.exists("axelIcon"))
+			iconP2.setIcon('new-icons/' + dad.xml.get('axelIcon'));
+		if (bf.xml.exists("axelIcon"))
+			iconP1.setIcon('new-icons/' + bf.xml.get('axelIcon'));
+	}
+
+	if (FlxG.save.data.middlescroll && PlayState.SONG.meta.customValues?.forceMiddlescroll != 'true') {
 		for (playerStrum in playerStrums)
 			playerStrum.x = ((FlxG.width / 2) - (Note.swagWidth * 2)) + (Note.swagWidth * playerStrums.members.indexOf(playerStrum));
 		for (i in 2...4)
@@ -18,7 +25,7 @@ function postCreate() {
 }
 
 function postUpdate() {
-	if (FlxG.save.data.middlescroll) {
+	if (FlxG.save.data.middlescroll && PlayState.SONG.meta.customValues?.forceMiddlescroll != 'true') {
 		for (i in strumLines.members[0])
 			i.alpha = 0.5;
 		for (i in strumLines.members[0].notes)
