@@ -5,6 +5,5 @@
 - story mode textures
 - abuse cinematic effect
 - add game over screens (toggleable)
-- add camera shake for boxnermal
 - add dumpster and freeplay unlock system
 - Customize Main menu, freeplay, and story menus (with gay diff)
