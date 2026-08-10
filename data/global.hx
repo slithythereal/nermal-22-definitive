@@ -25,7 +25,7 @@ function new() {
 	FlxG.save.data.disableJumpscareNotes ??= false;
 	FlxG.save.data.cubicCloseGame ??= true;
 	FlxG.save.data.cubicCameraShake ??= true;
-	FlxG.save.data.middlescroll ??=false;
+	FlxG.save.data.middlescroll ??= false;
 	FlxG.save.data.psychHUD ??= false;
 	FlxG.save.data.v2Ratings ??= false;
 	FlxG.save.data.gsrfieldNoteVisible ??= true;

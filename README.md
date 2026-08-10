@@ -37,11 +37,13 @@ I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues
 - No Nermal Notes: Toggles Nermal Notes off (can't unlock freeplay songs with this setting on)
 - No Jumpscare Notes: Toggles Jumpscare Notes off (can't unlock freeplay songs with this setting on)
 - Gayremix Note Swing: Toggles the swinging hurt notes in the Gay remixes (can't unlock freeplay songs with this toggled off)
-- Cubic Camera Shake: Toggles the intensive camera shaking in Cubic Calamity
-- Cubic Close Game: Toggles the Cubic Calamity game close when the song ends
+- Cubic Camera Shake: Toggles the intensive camera shaking in "Cubic Calamity"
+- Cubic Close Game: Toggles the "Cubic Calamity" game close when the song ends
 - Pussy Mode: Disables all mechanics (can't unlock freeplay songs with this setting on)
-##### General Settings
+##### Visual Settings
 - Middlescroll: An old feature from Psych Engine, puts your notes in the middle, spreads the opponent notes apart on both sides of the screen while turning their `alpha` values down to `0.5`
+- Cutes Garfield Notes: Toggles the visibility of Garfield's notes in "Cutes"
+- Scrapped V2 Ratings: Toggles the ratings assets that were going to be used for V2
 - Scrapped V2 Icons: Toggles the Icon redraws that were going to be used for V2 (only specific characters have this setting)
 - Psych Engine HUD: Turns on a remake of the Psych Engine HUD (use if you're clinically insane)
 
