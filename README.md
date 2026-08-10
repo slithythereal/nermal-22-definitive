@@ -67,8 +67,6 @@ DISCLAIMER: I have to keep this partially credited since some devs were excommun
 - car: Co-Director, musician, artist, gay mode charting, scripting, final touches
 - Slithy: Lead programmer/scripter, some charting, some assets
 - Yellofry: Somewhat director, lead artist/animator, "lord sex" (idk what this title means, but ok!)
-- DizziGoober: icons, promo art, menu art, Nermal VA
 - LeSlay: Nermal and Garfield chromatics
 - Lanzy: charter, partial programming
 - Marxtalero: cutes BG
-- PoXyk: Cinematic bars event
