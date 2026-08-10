@@ -15,6 +15,7 @@ This is a full recode of Nermal Nermal Nermallin' (2022) and a complete port fro
 
 ## What are the requirements to play this?
 This recode requires Codename Engine 1.0.1 and up to play!
+<img width="1280" height="720" alt="cen" src="https://github.com/user-attachments/assets/b283a2fa-2bdf-44ec-8a3c-cd10f8ef6c72" />
 - Download [Codename Engine](https://codename-engine.com/)
 - Download this mod
 - Drag and drop the mod folder into the mods folder in Codename Engine
@@ -61,9 +62,13 @@ I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues
 The old mod is highly outdated, and I have significantly improved as a programmer since then, plus Psych Engine 0.6.2 is unoptimized and ancient. With the release of the [Nermallin' 2026 reboot](https://gamebanana.com/mods/694404) (which I work on as well), I figured that I should recode this mod to get a better understanding of what could come from my future coding, plus learning more about accessibility settings as well. 
 
 Plus, there are some assets that we made during V2 development that I would've also loved to see in 2022 Nermal, such as the rating text and the icon remakes. (BOTH OF THESE ARE TOGGLEABLE IN OPTIONS)
+<img width="1280" height="720" alt="nermthumby" src="https://github.com/user-attachments/assets/a40551f2-2588-4e98-a705-60e5d11b2a20" />
+Play [Nermal 2026](https://gamebanana.com/mods/694404)
 
 ### Will the Christmas Side-Date get a recode or get added here?
 This one is a huge maybe. I can definitely do it; however, I did not work on the Christmas Side-Date. If I were to do it, it'd probably be the only and last update to this repository outside of bugfixes before I publicly archive it.
+<img width="530" height="298" alt="NermalChristmas" src="https://github.com/user-attachments/assets/a27a959e-539c-4195-8a60-1918b60b763c" />
+
 
 ### Why Codename Engine?
 - First: This is the most up-to-date FNF engine that I spent the most time programming in (outside of pre-1.0 Psych).
