@@ -80,6 +80,29 @@ function onPlayerMiss(event) {
 	}
 }
 
+function onNoteUpdate(e:NoteUpdateEvent) {
+	var note:Note = e.note;
+		if (note.noteType != "nermalNote")
+			return;
+		/*var strums:Array<Strum> = [
+			strumLines.members[0].members[note.noteData],
+			strumLines.members[1].members[note.noteData]
+		];
+		note.x = note.y * Math.sin(Conductor.songPosition / 100 * 0.3);
+		note.offset.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1)); */
+}
+
+function postUpdate(e:Float) {
+	/*for (strumLine in strumLines.members) {
+		for (note in strumLine.notes) {
+			if (note.noteType == 'nermalNote') {
+				note.offset.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+				note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+			}
+		}
+	}*/
+}
+
 function onNoteCreation(event) {
 	if (event.noteType == 'nermalNote') {
 		if (customScare != null && FlxG.save.data.customNermalNotes)
@@ -92,7 +115,6 @@ function onNoteCreation(event) {
 		}
 	}
 }
-
 /*function postUpdate(elapsed:Float) {
 	for (note in strumLines.notes) {
 		if (note.noteType == 'nermalNote') {
@@ -103,16 +125,20 @@ function onNoteCreation(event) {
 		}
 	}
 }*/
-function onNoteUpdate(e:NoteUpdateEvent) {
+/*
+	function onNoteUpdate(e:NoteUpdateEvent) {
 	var note:Note = e.note;
 
 	if (note.noteType == 'nermalNote' && PlayState.SONG.meta.customValues?.noteSwing == 'true') {
 		note.updateNotesPosY = true;
 		note.updateNotesPosX = true;
-		note.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
-		note.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+	//	setPropertyFromGroup('notes', i, 'offsetY', getPropertyFromGroup('notes', i, 'y') / -1 * math.abs(math.sin(getPropertyFromClass('Conductor', 'songPosition') / 100) * 1))
+
+		
+		///note.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+		///note.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
 	}
-}
+}*/
 /*
 	function onNoteUpdate(e:NoteUpdateEvent) {
 	if (FlxG.save.data.noteSwing && !FlxG.save.data.pussyMode) {

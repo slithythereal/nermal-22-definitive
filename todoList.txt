@@ -1,10 +1,8 @@
 - Get gaymode note swing working
-- add customizable settings that disable each note
 - add cam zooms for hi
 - Title screen
-- story mode textures
 - abuse cinematic effect
 - add game over screens (toggleable)
 - add freeplay unlock after you beat week
-- add recharts
+- add recharts (WIP)
 - Customize Main menu, freeplay, and story menus (with gay diff)
