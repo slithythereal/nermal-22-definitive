@@ -5,7 +5,8 @@
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [
-		"normal"
+		"normal",
+		"normal-rechart"
 	],
 	"icon": "garield",
 	"coopAllowed": false,

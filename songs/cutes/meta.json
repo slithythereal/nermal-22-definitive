@@ -6,7 +6,8 @@
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [
-		"normal"
+		"normal",
+		"normal-rechart"
 	],
 	"icon": "guy",
 	"coopAllowed": false,
