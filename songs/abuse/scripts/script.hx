@@ -14,7 +14,7 @@ function create() {
 		add(garfJumpIn);
 		bf.visible = dad.visible = garfJumpIn.visible = false;
 
-		boyf = new Character(game.bf.x+42.5, game.bf.y + 20, "bfShot", true);
+		boyf = new Character(game.bf.x + 42.5, game.bf.y + 20, "bfShot", true);
 		game.insert(game.members.indexOf(game.bf) - 1, boyf);
 
 		angryNerm = new Character(game.dad.x, game.dad.y + game.dad.globalOffset.y, "angrynermal");
@@ -25,6 +25,10 @@ function create() {
 function postCreate() {
 	if (PlayState.isStoryMode && !PlayState.seenCutscene) {
 		game.camHUD.visible = persistentUpdate = false;
+		for (strum in strumLines) {
+			for (strumNote in strum.notes)
+				strumNote.visible = false;
+		}
 		focusOn(dad);
 		inCutscene = persistentDraw = true;
 
@@ -40,6 +44,10 @@ function postCreate() {
 					onClose: function() {
 						inCutscene = false;
 						PlayState.seenCutscene = persistentUpdate = persistentDraw = game.camHUD.visible = true;
+						for (strum in strumLines) {
+							for (strumNote in strum.notes)
+								strumNote.visible = true;
+						}
 						startCountdown();
 					}
 				});
