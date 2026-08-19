@@ -6,7 +6,7 @@ function create() {
 }
 
 function postCreate() {
-	bf.visible = gf.visible = false;
+	bf.visible = false;
 	game.camGame.alpha = scoreTxt.alpha = missesTxt.alpha = accuracyTxt.alpha = 0;
 }
 

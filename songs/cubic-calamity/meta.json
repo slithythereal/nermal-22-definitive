@@ -5,7 +5,8 @@
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [
-		"easy"
+		"easy",
+		"easy-rechart"
 	],
 	"icon": "nerml",
 	"coopAllowed": false,
