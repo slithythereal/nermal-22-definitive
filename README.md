@@ -72,7 +72,7 @@ This one is a huge maybe. I can definitely do it; however, I did not work on the
 
 ### Why Codename Engine?
 - First: This is the most up-to-date FNF engine that I spent the most time programming in (outside of pre-1.0 Psych).
-- Second: Psych Engine's `.lua` handler was very unoptimized. Abuse would use like 800mb of RAM, now it uses less than 90mb on `.hx`.
+- Second: Psych Engine's `.lua` handler was very unoptimized. Abuse would use like 800mb of RAM, now it uses less than 150mb on `.hx`.
 - Third: This engine (as of right now at least, before the Week 8 update drops) is the only engine I know of that allows for custom `FlxState`s. Leading to the recode having a somewhat unique UI.
 - Fourth: Not having to compile a mod that would otherwise require source code to make is a great feeling, plus, you can just swap from one mod to the other in the main menu by pressing `TAB`.
 
