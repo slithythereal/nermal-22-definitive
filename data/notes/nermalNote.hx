@@ -1,15 +1,20 @@
 import funkin.backend.system.Conductor;
 import Math;
+import modchart.Manager;
 
 var nermB:FlxSprite;
 var nermT:FlxSprite;
 var customScare:String = null;
+var modchart:Manager;
 
 var customScareMap = [
 	'garfield' => {sound: "fard", noteSkin: 'GARFNOTES', jumpScare: 'garfield jumpscare'}
 ];
 
 function create() {
+	modchart = new Manager();
+	add(modchart);
+
 	if (PlayState.SONG.meta.customValues?.nermalNoteType != null && FlxG.save.data.customNermalNotes)
 		customScare = PlayState.SONG.meta.customValues?.nermalNoteType;
 
@@ -24,7 +29,7 @@ function create() {
 				nermal.loadGraphic(Paths.image('game/mech/' + customScareMap[customScare].jumpScare));
 		nermal.scale.set(2, 0.5);
 		nermal.updateHitbox();
-		nermal.cameras = [camHUD];
+		nermal.cameras = [camOther];
 		nermal.alpha = 0.001;
 	}
 	nermT.flipY = true;
@@ -79,12 +84,49 @@ function onPlayerMiss(event) {
 		note.destroy();
 	}
 }
+/*
+function postUpdate(e:Float) {
+	for (strumLine in strumLines.members) {
+		for (note in strumLine.notes) {
+			//trace(note.noteType);
+			if(note.noteType != 'nermalNote')
+				return;
+			//note.angle = Math.random(0.0, 0.9);
+			note.x = note.y / -1.1 * Math.sin(Conductor.songPosition / 100) * 0.3;
+			//note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+		}
+	}
+}*/
 
 function onNoteUpdate(e:NoteUpdateEvent) {
 	var note:Note = e.note;
-		if (note.noteType != "nermalNote")
-			return;
-		/*var strums:Array<Strum> = [
+	if (note.noteType != "nermalNote")
+		return;
+
+	/*trace(note.offset.x);
+	note.updateNotesPosX = false;
+	var startWindow:Float = hitWindow * 0.5 + 255;
+
+	var ogNote:Float = note.offset.x;
+	var timeUntilNote:Float = note.strumTime - Conductor.songPosition;
+	note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+
+	FlxTween.num(note.offset.x, ogNote, timeUntilNote, {type:FlxTween.PINGPONG, ease:FlxEase.linear});
+	*/
+	//var curX:Float = note.x;
+
+	//note.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+	/**
+		* 
+							if dadName == 'garfield' then
+								setPropertyFromGroup('notes', i, 'offsetY', getPropertyFromGroup('notes', i, 'y') / -1 * math.abs(math.sin(getPropertyFromClass('Conductor', 'songPosition') / 100) * 1))
+							else
+								setPropertyFromGroup('notes', i, 'offsetY', getPropertyFromGroup('notes', i, 'y') / -1.1)
+							end
+							
+							setPropertyFromGroup('notes', i, 'offsetX', getPropertyFromGroup('notes', i, 'y') * math.sin(getPropertyFromClass('Conductor', 'songPosition') / 100) * 0.3)
+	 */
+	/*var strums:Array<Strum> = [
 			strumLines.members[0].members[note.noteData],
 			strumLines.members[1].members[note.noteData]
 		];
@@ -92,17 +134,17 @@ function onNoteUpdate(e:NoteUpdateEvent) {
 		note.offset.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1)); */
 }
 
-function postUpdate(e:Float) {
-	/*for (strumLine in strumLines.members) {
+/*function postUpdate(e:Float) {
+	for (strumLine in strumLines.members) {
 		for (note in strumLine.notes) {
 			if (note.noteType == 'nermalNote') {
-				note.offset.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
-				note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+				//modchart.ease('bals', PlayState.instance.curBeat, 5, 1, 1, 1);
+				//note.offset.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+				//note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
 			}
 		}
-	}*/
-}
-
+	}
+}*/
 function onNoteCreation(event) {
 	if (event.noteType == 'nermalNote') {
 		if (customScare != null && FlxG.save.data.customNermalNotes)

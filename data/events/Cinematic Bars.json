@@ -1,0 +1,9 @@
+{
+    "params":[
+        {
+            "name": "Bars Up",
+            "type":"Bool",
+            "defaultValue": true
+        }
+    ]
+}

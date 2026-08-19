@@ -8,7 +8,7 @@ function onPlayerHit(event) {
 		garf.loadGraphic(Paths.image('game/mech/scarygarfield'));
 		garf.scale.set(1.8, 1);
 		garf.updateHitbox();
-		garf.cameras = [camHUD];
+		garf.cameras = [camOther];
 		garf.alpha = 1;
 		add(garf);
 

@@ -1,8 +1,8 @@
 {
 	"customValues": {
-		"hasWarningScreen": "true",
-		"jumpscareNoteType": "scary",
 		"noteSwing": "true",
+		"jumpscareNoteType": "scary",
+		"hasWarningScreen": "true",
 		"nermalNoteType": "garfield"
 	},
 	"color": "#9271FD",
@@ -17,6 +17,6 @@
 	"displayName": "Abuse GayRemix",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"vocalsSuffix": "-gay",
-	"bpm": 170
+	"bpm": 170,
+	"vocalsSuffix": "-gay"
 }

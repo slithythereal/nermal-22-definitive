@@ -30,4 +30,5 @@ function new() {
 	FlxG.save.data.v2Ratings ??= false;
 	FlxG.save.data.gsrfieldNoteVisible ??= true;
 	FlxG.save.data.warningScreenNN22 ??= true;
+	FlxG.save.data.cinematicBar ??= true;
 }
