@@ -1,4 +1,5 @@
 # NERMAL NERMAL NERMALLIN' (2022 Definitive Edition)
+<img width="889" height="500" alt="newthumby" src="https://github.com/user-attachments/assets/becabf80-bc9c-478d-8fbd-d230cfc41b7e" />
 
 A complete recode from the ground up for the legendary joke mod that abused the world back in the summer and fall of 2022!
 
