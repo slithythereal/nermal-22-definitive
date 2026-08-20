@@ -1,6 +1,12 @@
 var variation:String = null;
 
+var diffData:Map<String, {variation:String, hasRecharts:Bool}> = [
+	'gay' => {variation: 'gay', hasRecharts: false},
+	'easy' => {variation: null, hasRecharts: true}
+];
+
 importScript('data/scripts/HandyDandy');
+
 function onWeekSelect(event) {
 	event.cancel();
 	canSelect = false;
@@ -11,12 +17,10 @@ function onWeekSelect(event) {
 			spr.playAnim('confirm', true, "LOCK");
 		});
 
-	if (weeks[curWeek].difficulties[curDifficulty].toLowerCase() == 'gay')
-		variation = 'gay';
-	else
-		variation = null;
+	var difficultyCuh:String = weeks[curWeek].difficulties[curDifficulty].toLowerCase();
+	variation = (diffData[difficultyCuh].variation != null ? diffData[difficultyCuh].variation : null);
+
 	new FlxTimer().start(1, function(tmr:FlxTimer) {
-		trace(weeks[curWeek].songs);
 		var songsLol:Array<String> = [];
 		for (song in weeks[curWeek].songs)
 			songsLol.push(song.name.toLowerCase());
@@ -24,3 +28,6 @@ function onWeekSelect(event) {
 	});
 	weekSprites.members[event.weekID].startFlashing();
 }
+/**
+ * todo: add rechart box
+ */
