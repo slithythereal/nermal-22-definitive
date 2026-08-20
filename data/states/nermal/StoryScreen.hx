@@ -4,26 +4,44 @@ import flixel.util.typeLimit.OneOfTwo;
 import funkin.backend.FunkinText;
 import funkin.backend.scripting.events.CancellableEvent;
 import funkin.backend.scripting.events.menu.MenuChangeEvent;
-// import funkin.backend.scripting.events.menu.storymenu.*;
-// import funkin.backend.week.*;
 import funkin.backend.system.Flags;
 import funkin.backend.utils.FlxInterpolateColor;
-// import funkin.backend.week.WeekData;
+import funkin.backend.week.Week;
 import funkin.savedata.FunkinSave;
 import haxe.io.Path;
 import haxe.xml.Access;
-//import funkin.menus.StoryMenuState;
 import funkin.menus.StoryWeeklist;
+import funkin.backend.utils.XMLUtil;
+
+/**
+ * TODO: 
+ * add weeksprites menuitem
+ * write functionality
+ * tween in the menus on load
+ */
 var pD:FunkinParentDisabler;
+var characters:Map<String, Dynamic> = []; // using dynamics because I can't get typedefs for the life of me
+// im not figuring allat out 😭
+var weekArray:Array<String> = ['nermal'];
 
-// var characters:Map<String, WeekData.WeekCharacter> = [];
-
-var diffArray:Array<{diff:String, variant:String, hasRechart:Bool}> = [
-	{diff: 'easy', variant: null, hasRechart: true},
-	{diff: 'gay', variant: 'gay', hasRechart: false}
+var weekDataMINE = [
+	'nermal' => {
+		songs: ['nermal', 'xd', 'abuse'],
+		difficulties: ['easy', 'gay'],
+		weekName: "THE NERMAL MOD",
+		weekChars: ['nermal', 'gf', 'bf'],
+		weekTexture: 'nermal',
+		weekBackground: 'nermal'
+	}
 ];
 
-// var weeks:Array<WeekData>;
+var diffArray:Map<String, {variant:String, hasRechart:Bool}> = [
+	'easy' => {variant: null, hasRechart: true},
+	'normal' => {variant: null, hasRechart: false},
+	'hard' => {variant: null, hasRechart: false},
+	'gay' => {variant: 'gay', hasRechart: false}
+];
+
 var weekList:StoryWeekList;
 var curDiff:Int = 0;
 var curWeek:Int = 0;
@@ -48,7 +66,7 @@ importScript('data/scripts/HandyDandy');
 function postCreate() {
 	pD = new FunkinParentDisabler();
 	add(pD);
-    loadXMLS();
+	loadXMLS();
 
 	blackBar = new FlxSprite(0, 0).makeSolid(FlxG.width, 56, 0xFFFFFFFF);
 	blackBar.color = 0xFF000000;
@@ -75,8 +93,8 @@ function postCreate() {
 	var assets = Paths.getFrames('menus/storymenu/assets');
 	var directions = ["left", "right"];
 
-	leftArrow = new FlxSprite((FlxG.width + 400) / 2, weekBG.y + weekBG.height-150);
-	rightArrow = new FlxSprite(FlxG.width - 10, weekBG.y + weekBG.height-150);
+	leftArrow = new FlxSprite((FlxG.width + 400) / 2, weekBG.y + weekBG.height - 150);
+	rightArrow = new FlxSprite(FlxG.width - 10, weekBG.y + weekBG.height - 150);
 	for (k => arrow in [leftArrow, rightArrow]) {
 		var dir = directions[k];
 
@@ -101,36 +119,104 @@ function postCreate() {
 
 	add(characterSprites = new FlxTypedGroup<FunkinSprite>());
 
-	/*for (i => week in weeks) {
-		//var spr:MenuItem = new MenuItem(0, (i * 120) + 480, 'menus/storymenu/weeks/${week.sprite}');
-		//weekSprites.add(spr);
-
-		for (e in week.difficulties) {
-			var le = e.toLowerCase();
+	for (week in weekArray) {
+		for (diff in weekDataMINE[week].difficulties) {
+			var le = diff.toLowerCase();
 			if (difficultySprites[le] == null) {
 				var diffSprite = new FlxSprite(leftArrow.x + leftArrow.width, leftArrow.y);
-				diffSprite.loadAnimatedGraphic(Paths.image('menus/storymenu/difficulties/${le}'));
-				diffSprite.setUnstretchedGraphicSize(Std.int(rightArrow.x - leftArrow.x - leftArrow.width), Std.int(leftArrow.height), false, 1);
+				CoolUtil.loadAnimatedGraphic(diffSprite, Paths.image('menus/storymenu/difficulties/' + le));
+				CoolUtil.setUnstretchedGraphicSize(diffSprite, Std.int(rightArrow.x - leftArrow.x - leftArrow.width), Std.int(leftArrow.height), false, 1);
 				diffSprite.antialiasing = true;
 				diffSprite.scrollFactor.set();
 				add(diffSprite);
-
 				difficultySprites[le] = diffSprite;
 			}
 		}
+	}
+	/*for (i => week in weeks) {
+		//var spr:MenuItem = new MenuItem(0, (i * 120) + 480, 'menus/storymenu/weeks/${week.sprite}');
+		//weekSprites.add(spr);
 	}*/
 
 	interpColor = new FlxInterpolateColor(weekBG.color);
-	// curDifficulty = Math.floor(weeks[0].difficulties.length * 0.5);
+	var wdl = weekDataMINE[weekArray[curWeek]].difficulties.length;
+	curDifficulty = Math.floor(wdl * 0.5);
 	// changeWeek(0, true);
 }
 
-function loadXMLS() {/*
-	weekList = StoryWeekList.get(true, false);
-	weeks = weekList.weeks;
-	for (week in weeks)
-		for (char in week.chars)
-			if (char != null)
-				trace('balls');
-	// addCharacter(char.name);*/
+function loadXMLS() {
+	for (week in weekArray)
+		for (char in weekDataMINE[week].weekChars)
+			addCharacter(char);
+
+	/*
+		var weekList = StoryWeeklist.get(true, false);
+		trace('Weeklist: ${weekList.weeks}');
+		var weeks = weekList.weeks;
+		trace(weeks); */
+
+	// addCharacter(char.name);
+}
+
+function addCharacter(char:OneOfTwo<String, Dynamic>) {
+	var ourChar:Dynamic = null;
+	var charName:String;
+	charName = char is String ? cast char : (ourChar = cast char).name;
+	if (characters[charName] != null)
+		return;
+	characters[charName] = ourChar == null ? Week.loadWeekCharacter(charName) : ourChar;
+}
+
+function postUpdate(elapsed:Float) {
+	if (controls.BACK) {
+		remove(pD);
+		close();
+	}
+	// interpColor.fpsLerpTo()
+}
+
+function beatHit(curBeat) {
+	if (characterSprites != null)
+		characterSprites.forEachAlive(function(spr) spr.beatHit(curBeat));
+}
+
+function changeWeek(change:Int, force:Bool = false) {
+	if (characterSprites != null) {
+		for (i in 0...3) {
+			var char = weekDataMINE[weekArray[curWeek]].weekChars[i];
+			var curChar:FunkinSprite = null;
+			var newChar = null;
+			if (char == null || (newChar = characters[char.name]) == null)
+				modifyCharacterAt(i, null);
+			else if ((curChar = cast characterSprites.members[i]) == null || newchar.name != curChar.name)
+				modifyCharacterAt(i, newChar);
+		}
+	}
+}
+
+function modifyCharacterAt(i:Int, ?data:Dynamic) {
+	var curChar:FunkinSprite = null;
+
+	if (characterSprites != null) {
+		var old = characterSprites.members[i];
+		if (old != null) {
+			characterSprites.remove(old);
+			old.destroy();
+		}
+		if (data != null) {
+			curChar = XMLUtil.createSpriteFromXMLI(data.xml, "", "BEAT");
+			curChar.offset.x += curChar.x;
+			curChar.offset.y += curChar.y;
+			curChar.setPosition((FlxG.width * 0.25) * (1 + i) - 150, 70);
+			curChar.playAnim('idle', true, "DANCE");
+		} else {
+			characterSprites.insert(i, new FunkinSprite()).visible = false;
+		}
+	}
+	return curChar;
+}
+
+function selectWeek() {
+	if (characterSprites != null)
+		characterSprites.forEachAlive(function(spr) spr.playAnim('confirm', true, "LOCK"));
 }
