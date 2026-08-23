@@ -22,6 +22,11 @@ function create() {
 	}
 }
 
+function onSongEnd(){
+	if(PlayState.isStoryMode)
+		FlxG.save.data.freeplayUnlockedNN22=true;
+}
+
 function postCreate() {
 	if (PlayState.isStoryMode && !PlayState.seenCutscene) {
 		game.camHUD.visible = persistentUpdate = false;

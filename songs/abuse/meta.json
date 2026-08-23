@@ -1,7 +1,7 @@
 {
 	"customValues": {
-		"jumpscareNoteType": "scary",
 		"hasWarningScreen": "true",
+		"jumpscareNoteType": "scary",
 		"nermalNoteType": "garfield"
 	},
 	"color": "#9271FD",

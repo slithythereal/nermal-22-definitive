@@ -31,4 +31,6 @@ function new() {
 	FlxG.save.data.gsrfieldNoteVisible ??= true;
 	FlxG.save.data.warningScreenNN22 ??= true;
 	FlxG.save.data.cinematicBar ??= true;
+
+	FlxG.save.data.freeplayUnlockedNN22 ??= false;
 }

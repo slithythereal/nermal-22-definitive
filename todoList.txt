@@ -2,5 +2,5 @@
 - fix double notes in abuse beatbox section (easyrechart)
 - add game over screens (toggleable)
 - add recharts (WIP) (SPECIFCALLY HURTNOTE)
-- Customize Main menu, freeplay, and story menus (with gay diff)
+- Customize Main menu, freeplay
 - add freeplay unlock after you beat week
