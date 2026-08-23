@@ -1,5 +1,6 @@
 import funkin.backend.utils.NativeAPI;
 import funkin.backend.MusicBeatState;
+import funkin.options.OptionsMenu;
 
 function onSelectItem(event) {
 	event.cancel();
