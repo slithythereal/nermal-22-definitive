@@ -57,7 +57,6 @@ function toggleCheckbox() {
 	if (rechartISCHECKED && !localHasRecharts) {
 		rechartCheckbox.playAnim('unselecting');
 		rechartISCHECKED = false;
-
 		rechartCheckbox.animation.finishCallback = function() {
 			rechartCheckbox.playAnim('unselected');
 		}
