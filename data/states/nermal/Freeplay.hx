@@ -32,6 +32,7 @@ var ogDiffY:Float = 0;
 var rechartISCHECKED:Bool = false;
 var rechartCheckbox:FunkinSprite;
 var rechartText:FlxText;
+
 function postCreate() {
 	CoolUtil.playMenuSong();
 	FlxG.mouse.visible = true;
@@ -67,7 +68,13 @@ function postCreate() {
 	coolBG.setGraphicSize(bg.width, bg.height + (bg.height * 0.3));
 	add(coolBG);
 
-	oppIcon = new HealthIcon(chartDataMap[songs[curSong]].icon, true);
+	//		iconP2.setIcon('new-icons/' + dad.xml.get('axelIcon'));
+
+	var extension:String = '';
+	if (Assets.exists(Paths.image('icons/new-icons/' + chartDataMap[songs[curSong]].icon)) && FlxG.save.data.axelIcons)
+		extension = 'new-icons/';
+
+	oppIcon = new HealthIcon(extension + chartDataMap[songs[curSong]].icon, true);
 	oppIcon.flipX = true;
 	var iconScl:Float = 2;
 	oppIcon.scale.set(iconScl, iconScl);
@@ -235,10 +242,16 @@ function changeDifficulty(change:Int) {
 	}
 	for (arrow in arrows)
 		arrow.x = coolDiffSprite.x - 50 + (arrow.ID * (196 / 0.8));
+	var high = FunkinSave.getSongHighscore(chartDataMap[songs[curSong]].displayName.toLowerCase(), songDifficultyMap[songs[curSong]][curDifficulty]);
+	songScore.text = 'HIGH SCORE: ' + high.score;
+	songScore.screenCenter(FlxAxes.X);
 }
 
 function changeAssets() {
-	oppIcon.setIcon(chartDataMap[songs[curSong]].icon);
+	var extension:String = '';
+	if (Assets.exists(Paths.image('icons/new-icons/' + chartDataMap[songs[curSong]].icon)) && FlxG.save.data.axelIcons)
+		extension = 'new-icons/';
+	oppIcon.setIcon(extension + chartDataMap[songs[curSong]].icon);
 	var iconScl:Float = 2;
 	oppIcon.scale.set(iconScl, iconScl);
 	oppIcon.updateHitbox();
