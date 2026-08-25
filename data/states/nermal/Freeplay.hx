@@ -145,12 +145,13 @@ function postCreate() {
 	add(rechartText);
 
 	changeSong(0);
-	tweenObjs();
+	tweenObjs(false);
 }
 
 function postUpdate(elapsed:Float) {
 	if (controls.BACK)
 		FlxG.switchState(new MainMenuState());
+
 	if (canPress) {
 		if (selections[curSelection] == 'difficulties') {
 			var controlBoolArray:Array<Bool> = [controls.LEFT, controls.RIGHT];
@@ -191,17 +192,17 @@ function selectSong() {
 	FlxG.switchState(new PlayState());
 }
 
-function tweenObjs() {
+function tweenObjs(goingUp:Bool) {
 	var posMap:Map<FlxObject, Float> = [];
 	var topObjs:Array<FlxObject> = [songScore, coolBG];
 	var bottomObjs:Array<FlxObject> = [songText, oppIcon, coolDiffSprite, rechartCheckbox, rechartText];
 	for (obj in topObjs) {
 		posMap.set(obj, obj.y);
-		obj.y -= 720;
+		obj.y -= 720 * (goingUp ? -1 : 1);
 	}
 	for (obj in bottomObjs) {
 		posMap.set(obj, obj.y);
-		obj.y += 720;
+		obj.y += 720 * (goingUp ? -1 : 1);
 	}
 	var allObjs:Array<FlxObject> = topObjs;
 	for (obj in bottomObjs)

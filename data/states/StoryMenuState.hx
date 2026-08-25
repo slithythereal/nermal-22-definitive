@@ -39,15 +39,16 @@ function postUpdate(elapsed:Float) {
 		FlxG.sound.play(Paths.sound('editors/checkbox' + (rechartISCHECKED ? 'Checked' : 'Unchecked')));
 	}
 	if (controls.LEFT_P)
-		toggleCheckbox();
+		toggleCheckbox(-1);
 	else if (controls.RIGHT_P)
-		toggleCheckbox();
+		toggleCheckbox(1);
 }
 
-function toggleCheckbox() {
+function toggleCheckbox(change:Int) {
+	curDifficulty += 1;
+	curDifficulty = FlxMath.wrap(curDifficulty,0,weeks[curWeek].difficulties.length-1);
 	var difficultyCuh:String = weeks[curWeek].difficulties[curDifficulty].toLowerCase();
 	var localHasRecharts:Bool = diffData[difficultyCuh].hasRecharts;
-	
 	rechartCheckbox.visible = rechartText.visible = localHasRecharts;
 	if (rechartISCHECKED && !localHasRecharts) {
 		rechartCheckbox.playAnim('unselecting');
