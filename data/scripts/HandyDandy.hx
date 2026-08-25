@@ -1,5 +1,9 @@
 import funkin.game.PlayState;
-
+public var diffData:Map<String, {variation:String, hasRecharts:Bool}> = [
+	'gay' => {variation: 'gay', hasRecharts: false},
+	'easy' => {variation: null, hasRecharts: true},
+	'normal' => {variation:null,hasRecharts: true}
+];
 public var HandyDandy:T = {
 	// can use whenever
 	loadWeek: function(weekSongs:Array<String>, name:String, id:String, difficulty:String, variation:String) {
@@ -41,8 +45,8 @@ public var HandyDandy:T = {
 		FlxG.cameras.cameraAdded.dispatch(newCamera);
 		return newCamera;
 	},
-	loadSong: function(song:String) {
-		PlayState.loadSong(song.toLowerCase(), "hard", false, false);
+	loadSong: function(song:String, difficulty:String) {
+		PlayState.loadSong(song.toLowerCase(), difficulty);
 		FlxG.switchState(new PlayState());
 	},
 	watch: function(obj:FlxObject) {

@@ -1,6 +1,5 @@
 - Get gaymode note swing working (CANT WORK, SOMEONE FIX FOR ME PLEASE)
-- fix double notes in abuse beatbox section (easyrechart)
 - add game over screens (toggleable)
 - add recharts (WIP) (SPECIFCALLY HURTNOTE)
-- Customize Main menu, freeplay
-- add freeplay unlock after you beat week
+- add psych engine ui (toggleable)
+- add old v2 ratings

@@ -16,19 +16,25 @@ var curSelection:Int = 0;
 var selections:Array<String> = ['songs', 'difficulties'];
 var canPress:Bool = false;
 var songs:Array<String> = [];
-var curSong:Int = 0;
-var curDifficulty:Int = 0;
+public static var curSong:Int = 0;
+public static var curDifficulty:Int = 0;
 var chartDataMap:Map<String, ChartMetaData> = [];
 var songDifficultyMap:Map<String, Array<String>> = [];
 var oppIcon:HealthIcon;
 var songText:Alphabet;
 var songScore:FlxText;
-var songsHaveRechart:Array<{songName:String, difficulty:String}> = [];
+var songsHaveRechart:Array<String> = [];
 var coolBG:FunkinSprite;
 var coolDiffSprite:FunkinSprite;
 var arrows:FlxTypedGroup<FunkinSprite>;
-
+var twnDiffY:Float = 0;
+var ogDiffY:Float = 0;
+var rechartISCHECKED:Bool = false;
+var rechartCheckbox:FunkinSprite;
+var rechartText:FlxText;
 function postCreate() {
+	CoolUtil.playMenuSong();
+	FlxG.mouse.visible = true;
 	var freeplaysonglist = FreeplaySonglist.get();
 	var rawDifficultyArray:Array<String> = [];
 	rawDifficultyArray = CoolUtil.coolTextFile(Paths.txt('config/freeplaySongDifficulties'));
@@ -48,7 +54,7 @@ function postCreate() {
 			if (difficulty.contains('-rechart')) {
 				var dashPos:Int = difficulty.indexOf('-');
 				var difficultyName:String = difficulty.substr(0, dashPos);
-				songsHaveRechart.push({songName: i, difficulty: difficultyName});
+				songsHaveRechart.push(i + "*" + difficultyName);
 			}
 		}
 	}
@@ -86,10 +92,13 @@ function postCreate() {
 	songScore.setFormat(Paths.font('vcr.ttf'), 50, FlxColor.WHITE, "center");
 	add(songScore);
 
-	coolDiffSprite = new FunkinSprite(0, 645);
+	coolDiffSprite = new FunkinSprite(0, 650.5);
 	coolDiffSprite.loadGraphic(Paths.image('menus/storymenu/difficulties/' + songDifficultyMap[songs[curSong]][curDifficulty].toLowerCase()));
 	add(coolDiffSprite);
 	coolDiffSprite.screenCenter(FlxAxes.X);
+	ogDiffY = coolDiffSprite.y;
+	twnDiffY = coolDiffSprite.y;
+	twnDiffY -= 10;
 
 	arrows = new FlxTypedGroup<FunkinSprite>();
 	add(arrows);
@@ -100,13 +109,33 @@ function postCreate() {
 		arrow.addAnim('press', 'arrow push ' + dir, 24, false);
 		arrow.playAnim('idle');
 		arrow.ID = i;
-		arrow.y = coolDiffSprite.y;
+		arrow.y = coolDiffSprite.y - 10;
 		arrow.antialiasing = false;
 		arrows.add(arrow);
 	}
-	for (arrow in arrows) {
+	for (arrow in arrows)
 		arrow.x = coolDiffSprite.x - 50 + (arrow.ID * (196 / 0.8));
-	}
+	arrows.visible = false;
+
+	rechartCheckbox = new FunkinSprite(1175, 620);
+	rechartCheckbox.frames = Paths.getSparrowAtlas('menus/options/checkboxThingie');
+	rechartCheckbox.addAnim('selected', 'Check Box Selected Static0', 1);
+	rechartCheckbox.addAnim('selecting', 'Check Box selecting animation0', 24, false);
+	rechartCheckbox.addAnim('unselecting', 'Check Box deselect animation0', 24, false);
+	rechartCheckbox.addAnim('unselected', 'Check Box unselected0', 1);
+	rechartCheckbox.addOffset('selected', 23, 38);
+	rechartCheckbox.addOffset('selecting', 35, 99);
+	rechartCheckbox.addOffset('unselecting', 25, 58);
+	rechartCheckbox.playAnim('unselected');
+	rechartCheckbox.scale.set(0.55, 0.5);
+	rechartCheckbox.updateHitbox();
+	rechartCheckbox.scale.set(1, 1);
+	rechartCheckbox.offset.set(7.5, 7.5);
+	add(rechartCheckbox);
+
+	rechartText = new FlxText(815, 640, 0, "PLAY RECHART: ");
+	rechartText.setFormat(Paths.font('vcr.ttf'), 42.5, FlxColor.WHITE, "RIGHT");
+	add(rechartText);
 
 	changeSong(0);
 	tweenObjs();
@@ -116,21 +145,49 @@ function postUpdate(elapsed:Float) {
 	if (controls.BACK)
 		FlxG.switchState(new MainMenuState());
 	if (canPress) {
+		if (selections[curSelection] == 'difficulties') {
+			var controlBoolArray:Array<Bool> = [controls.LEFT, controls.RIGHT];
+			for (i => arrow in arrows)
+				arrow.playAnim((controlBoolArray[i] ? 'press' : 'idle'));
+		}
 		if (controls.LEFT_P)
 			change(-1, selections[curSelection]);
 		else if (controls.RIGHT_P)
 			change(1, selections[curSelection]);
+
+		if (controls.ACCEPT)
+			selectSong();
+
 		if (controls.UP_P)
 			changeSelection(-1);
 		else if (controls.DOWN_P)
 			changeSelection(1);
 	}
+
+	if (FlxG.mouse.overlaps(rechartCheckbox) && FlxG.mouse.justPressed && canPress && rechartCheckbox.visible) {
+		rechartISCHECKED = !rechartISCHECKED;
+		rechartCheckbox.playAnim((rechartISCHECKED ? 'selecting' : 'unselecting'));
+		rechartCheckbox.animation.finishCallback = function() {
+			rechartCheckbox.playAnim((rechartISCHECKED ? 'selected' : 'unselected'));
+		}
+		FlxG.sound.play(Paths.sound('editors/checkbox' + (rechartISCHECKED ? 'Checked' : 'Unchecked')));
+		var high = FunkinSave.getSongHighscore(chartDataMap[songs[curSong]].displayName.toLowerCase(),
+			songDifficultyMap[songs[curSong]][curDifficulty] + (rechartISCHECKED ? '-rechart' : ''));
+		songScore.text = 'HIGH SCORE: ' + high.score;
+		songScore.screenCenter(FlxAxes.X);
+	}
+}
+
+function selectSong() {
+	var diff:String = songDifficultyMap[songs[curSong]][curDifficulty];
+	PlayState.loadSong(songs[curSong], diff + (rechartISCHECKED ? '-rechart' : ''), diffData[diff].variation);
+	FlxG.switchState(new PlayState());
 }
 
 function tweenObjs() {
 	var posMap:Map<FlxObject, Float> = [];
 	var topObjs:Array<FlxObject> = [songScore, coolBG];
-	var bottomObjs:Array<FlxObject> = [songText, oppIcon, coolDiffSprite];
+	var bottomObjs:Array<FlxObject> = [songText, oppIcon, coolDiffSprite, rechartCheckbox, rechartText];
 	for (obj in topObjs) {
 		posMap.set(obj, obj.y);
 		obj.y -= 720;
@@ -164,6 +221,20 @@ function changeDifficulty(change:Int) {
 	var pre:Int = curDifficulty;
 	curDifficulty += change;
 	curDifficulty = FlxMath.wrap(curDifficulty, 0, songDifficultyMap[songs[curSong]].length - 1);
+	coolDiffSprite.loadGraphic(Paths.image('menus/storymenu/difficulties/' + songDifficultyMap[songs[curSong]][curDifficulty].toLowerCase()));
+	var doesHaveRechart:Bool = songsHaveRechart.contains(songs[curSong] + '*' + songDifficultyMap[songs[curSong]][curDifficulty]);
+	for (i in [rechartCheckbox, rechartText])
+		i.visible = doesHaveRechart;
+	if (!doesHaveRechart && rechartISCHECKED)
+		rechartISCHECKED = false;
+	if (canPress) {
+		coolDiffSprite.y = twnDiffY;
+		FlxTween.cancelTweensOf(coolDiffSprite);
+		FlxTween.tween(coolDiffSprite, {y: ogDiffY}, 0.2, {ease: FlxEase.circOut});
+		coolDiffSprite.screenCenter(FlxAxes.X);
+	}
+	for (arrow in arrows)
+		arrow.x = coolDiffSprite.x - 50 + (arrow.ID * (196 / 0.8));
 }
 
 function changeAssets() {
@@ -174,7 +245,6 @@ function changeAssets() {
 	oppIcon.defaultScale = iconScl;
 	songText.text = '< ' + chartDataMap[songs[curSong]].displayName + ' >';
 	songText.screenCenter(FlxAxes.X);
-
 	oppIcon.scale.set(iconScl + 0.2, iconScl + 0.2);
 	FlxTween.cancelTweensOf(oppIcon);
 	FlxTween.tween(oppIcon, {"scale.x": iconScl, "scale.y": iconScl}, 0.1, {ease: FlxEase.linear});
@@ -197,9 +267,18 @@ function change(change:Int, selection:String) {
 function changeSelection(change:Int) {
 	curSelection += change;
 	curSelection = FlxMath.wrap(curSelection, 0, selections.length - 1);
+	if (selections[curSelection] == 'difficulties') {
+		if (songDifficultyMap[songs[curSong]].length <= 1) {
+			curSelection -= change;
+			curSelection = FlxMath.wrap(curSelection, 0, selections.length - 1);
+		}
+	}
 
 	var sTxt:String = chartDataMap[songs[curSong]].displayName;
 	var songsSelected:Bool = selections[curSelection] == 'songs';
 	songText.text = (songsSelected ? '< ' : '') + sTxt + (songsSelected ? ' >' : '');
 	songText.screenCenter(FlxAxes.X);
+	var arrowsVisible:Bool = selections[curSelection] == 'difficulties'
+		&& songDifficultyMap[songs[curSong]].length > 1; // has difficulties plural
+	arrows.visible = (arrowsVisible ? true : false);
 }

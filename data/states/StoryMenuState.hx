@@ -3,11 +3,6 @@ var variation:String = null;
 var rechartCheckbox:FunkinSprite;
 var rechartISCHECKED:Bool = false;
 
-var diffData:Map<String, {variation:String, hasRecharts:Bool}> = [
-	'gay' => {variation: 'gay', hasRecharts: false},
-	'easy' => {variation: null, hasRecharts: true}
-];
-
 var rechartUncheckedAlpha:Float = 0.5;
 var rechartText:FlxText;
 
