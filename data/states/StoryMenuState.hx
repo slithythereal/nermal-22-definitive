@@ -45,8 +45,8 @@ function postUpdate(elapsed:Float) {
 }
 
 function toggleCheckbox(change:Int) {
-	curDifficulty += 1;
-	curDifficulty = FlxMath.wrap(curDifficulty,0,weeks[curWeek].difficulties.length-1);
+	//curDifficulty += 1;
+	//curDifficulty = FlxMath.wrap(curDifficulty,0,weeks[curWeek].difficulties.length-1);
 	var difficultyCuh:String = weeks[curWeek].difficulties[curDifficulty].toLowerCase();
 	var localHasRecharts:Bool = diffData[difficultyCuh].hasRecharts;
 	rechartCheckbox.visible = rechartText.visible = localHasRecharts;
