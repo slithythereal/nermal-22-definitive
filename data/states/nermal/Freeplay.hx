@@ -155,8 +155,9 @@ function postUpdate(elapsed:Float) {
 	if (canPress) {
 		if (selections[curSelection] == 'difficulties') {
 			var controlBoolArray:Array<Bool> = [controls.LEFT, controls.RIGHT];
-			for (i => arrow in arrows)
-				arrow.playAnim((controlBoolArray[i] ? 'press' : 'idle'));
+			arrows.forEachAlive(function(arrow:FunkinSprite){
+				arrow.playAnim((controlBoolArray[arrow.ID]?'press':'idle'));
+			});
 		}
 		if (controls.LEFT_P)
 			change(-1, selections[curSelection]);
