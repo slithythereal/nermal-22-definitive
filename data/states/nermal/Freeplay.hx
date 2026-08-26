@@ -163,10 +163,8 @@ function postUpdate(elapsed:Float) {
 			change(-1, selections[curSelection]);
 		else if (controls.RIGHT_P)
 			change(1, selections[curSelection]);
-
 		if (controls.ACCEPT)
 			selectSong();
-
 		if (controls.UP_P)
 			changeSelection(-1);
 		else if (controls.DOWN_P)

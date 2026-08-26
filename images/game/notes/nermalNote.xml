@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="nermalnote.png">
-	<!-- Created with Adobe Animate version 22.0.4.185 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="blue0000" x="3" y="3" width="157" height="154" pivotX="1.1" pivotY="11.15"/>
-	<SubTexture name="green0000" x="269" y="3" width="158" height="154" pivotX="-9.75" pivotY="-6.25"/>
-	<SubTexture name="purple0000" x="3" y="160" width="154" height="157" pivotX="-0.05" pivotY="10"/>
-	<SubTexture name="red0000" x="160" y="160" width="154" height="157" pivotX="1.25" pivotY="24.4"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.7.1 https://kitzsh.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="nermalNote.png" width="325" height="325">
+  <SubTexture name="blue0000" x="0" y="0"  width="157" height="154" frameX="-0" frameY="-0" frameWidth="157" frameHeight="154"/>
+  <SubTexture name="green0000" x="157" y="0"  width="157" height="154" frameX="-0" frameY="-0" frameWidth="158" frameHeight="154"/>
+  <SubTexture name="purple0000" x="0" y="154"  width="154" height="157" frameX="-0" frameY="-0" frameWidth="154" frameHeight="157"/>
+  <SubTexture name="red0000" x="154" y="154"  width="154" height="156" frameX="-0" frameY="-0" frameWidth="154" frameHeight="157"/>
 </TextureAtlas>
