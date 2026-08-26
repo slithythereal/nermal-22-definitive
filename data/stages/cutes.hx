@@ -2,6 +2,7 @@ function postCreate() {
 	sl.scale.set(FlxG.width / 883, FlxG.height / 600);
 	sl.updateHitbox();
 	sl.cameras = [camOther];
+
 	gf.visible = false;
 	for (strum in strumLines) {
 		for (i => strumLine in strumLines.members) {
@@ -34,7 +35,7 @@ function onCountdown(event) {
 	if (event.soundPath != null)
 		event.soundPath = 'ourpleUI/' + event.soundPath;
 	event.antialiasing = false;
-	event.spritePath = switch(event.swagCounter){
+	event.spritePath = switch (event.swagCounter) {
 		case 0: 'game/ourpleUI/onyourmarks';
 		case 1: 'game/ourpleUI/ready';
 		case 2: 'game/ourpleUI/set';
@@ -42,8 +43,9 @@ function onCountdown(event) {
 	}
 }
 
-function onNoteHit(event){
-	event.ratingPrefix = 'game/ourpleUI/'; //changes the numbers too so i had to add all the numbers in here to fix it (bounty)
+function onNoteHit(event) {
+	disableV2Ratings = true;
+	event.ratingPrefix = 'game/ourpleUI/'; // changes the numbers too so i had to add all the numbers in here to fix it (bounty)
 }
 
 function garfieldFall() {

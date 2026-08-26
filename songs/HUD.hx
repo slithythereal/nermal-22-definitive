@@ -1,4 +1,5 @@
 public var camOther:FlxCamera;
+public var disableV2Ratings:Bool = false;
 
 function create() {
 	camOther = new FlxCamera();
@@ -31,4 +32,9 @@ function postUpdate() {
 		for (i in strumLines.members[0].notes)
 			i.alpha = 0.5;
 	}
+}
+
+function onNoteHit(event) {
+	if (FlxG.save.data.v2Ratings && !disableV2Ratings)
+		event.ratingPrefix = 'game/v2ratings/'; // changes the numbers too so i had to add all the numbers in here to fix it (bounty)
 }

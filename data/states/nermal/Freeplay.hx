@@ -32,6 +32,9 @@ var ogDiffY:Float = 0;
 var rechartISCHECKED:Bool = false;
 var rechartCheckbox:FunkinSprite;
 var rechartText:FlxText;
+var bg:FlxSprite;
+var topBar:FlxSprite;
+var bottomBar:FlxSprite;
 
 function postCreate() {
 	CoolUtil.playMenuSong();
@@ -60,15 +63,13 @@ function postCreate() {
 		}
 	}
 
-	var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height * 0.75, 0xFFF9CF51);
+	bg = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height * 0.75, 0xFFF9CF51);
 	add(bg);
 	bg.screenCenter(FlxAxes.Y);
 
 	coolBG = new FunkinSprite(bg.x, bg.y).loadGraphic(Paths.image('menus/storymenu/menubgs/menu_nermal'));
 	coolBG.setGraphicSize(bg.width, bg.height + (bg.height * 0.3));
 	add(coolBG);
-
-	//		iconP2.setIcon('new-icons/' + dad.xml.get('axelIcon'));
 
 	var extension:String = '';
 	if (Assets.exists(Paths.image('icons/new-icons/' + chartDataMap[songs[curSong]].icon)) && FlxG.save.data.axelIcons)
@@ -87,8 +88,8 @@ function postCreate() {
 	add(songText);
 	songText.screenCenter(FlxAxes.X);
 
-	var topBar:FlxSprite = new FlxSprite();
-	var bottomBar:FlxSprite = new FlxSprite();
+	topBar = new FlxSprite();
+	bottomBar = new FlxSprite();
 	for (bar in [topBar, bottomBar]) {
 		bar.makeGraphic(FlxG.width, FlxG.height * 0.125, 0xFF000000);
 		add(bar);
@@ -149,14 +150,16 @@ function postCreate() {
 }
 
 function postUpdate(elapsed:Float) {
-	if (controls.BACK)
+	if (controls.BACK) {
+		CoolUtil.playMenuSFX(2);
 		FlxG.switchState(new MainMenuState());
+	}
 
 	if (canPress) {
 		if (selections[curSelection] == 'difficulties') {
 			var controlBoolArray:Array<Bool> = [controls.LEFT, controls.RIGHT];
-			arrows.forEachAlive(function(arrow:FunkinSprite){
-				arrow.playAnim((controlBoolArray[arrow.ID]?'press':'idle'));
+			arrows.forEachAlive(function(arrow:FunkinSprite) {
+				arrow.playAnim((controlBoolArray[arrow.ID] ? 'press' : 'idle'));
 			});
 		}
 		if (controls.LEFT_P)
@@ -186,9 +189,28 @@ function postUpdate(elapsed:Float) {
 }
 
 function selectSong() {
-	var diff:String = songDifficultyMap[songs[curSong]][curDifficulty];
-	PlayState.loadSong(songs[curSong], diff + (rechartISCHECKED ? '-rechart' : ''), diffData[diff].variation);
-	FlxG.switchState(new PlayState());
+	CoolUtil.playMenuSFX(1);
+
+	var posMap:Map<FlxObject, Float> = [];
+	for (spr in [songScore, coolBG, topBar])
+		posMap.set(spr, spr.y - 720);
+	for (spr in [songText, arrows.members[0], arrows.members[1], bottomBar, rechartText])
+		posMap.set(spr, spr.y + 720);
+	for (spr => pos in posMap)
+		FlxTween.tween(spr, {y: pos}, 0.5, {ease: FlxEase.quintOut});
+	canPress = false;
+	FlxTween.tween(bg.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quintInOut});
+
+	FlxTween.tween(coolDiffSprite.scale, {x: 2, y: 2}, 0.5, {ease: FlxEase.quintInOut});
+	FlxTween.tween(coolDiffSprite, {y: FlxG.height / 6}, 0.5, {ease: FlxEase.quintInOut});
+	FlxTween.tween(rechartCheckbox, {y: (rechartISCHECKED ? FlxG.height / 1.25 : rechartCheckbox.y + 720), x: (rechartISCHECKED ? FlxG.width / 2.15 : 0)},
+		0.5, {ease: (rechartISCHECKED ? FlxEase.quintInOut : FlxEase.quintOut)});
+
+	new FlxTimer().start(1, function(tmr:FlxTimer) {
+		var diff:String = songDifficultyMap[songs[curSong]][curDifficulty];
+		PlayState.loadSong(songs[curSong], diff + (rechartISCHECKED ? '-rechart' : ''), diffData[diff].variation);
+		FlxG.switchState(new PlayState());
+	});
 }
 
 function tweenObjs(goingUp:Bool) {
@@ -267,6 +289,8 @@ function changeAssets() {
 }
 
 function change(change:Int, selection:String) {
+	CoolUtil.playMenuSFX("menu/scroll");
+
 	switch (selection) {
 		case 'songs':
 			changeSong(change);
@@ -284,8 +308,10 @@ function changeSelection(change:Int) {
 		if (songDifficultyMap[songs[curSong]].length <= 1) {
 			curSelection -= change;
 			curSelection = FlxMath.wrap(curSelection, 0, selections.length - 1);
-		}
-	}
+		} else
+			CoolUtil.playMenuSFX("menu/scroll");
+	} else
+		CoolUtil.playMenuSFX("menu/scroll");
 
 	var sTxt:String = chartDataMap[songs[curSong]].displayName;
 	var songsSelected:Bool = selections[curSelection] == 'songs';

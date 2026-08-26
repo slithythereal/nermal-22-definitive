@@ -5,6 +5,15 @@ function create() {
 	game = PlayState.instance;
 }
 
+function onStartCountdown(_){
+	//couldn't put this in `create` or `postCreate` for some reason
+	var dadScl:Array<Float> = [game.dad.scale.x, game.dad.scale.y];
+	game.dad.scale.set(dadScl[0] / 2, dadScl[1]);
+	game.dad.updateHitbox();
+	game.dad.scale.set(dadScl[0], dadScl[1]);
+	game.dad.playAnim('idle');
+}
+
 function beatHit(curBeat) {
 	if (game.healthBar.percent < 80)
 		game.iconP2.flipX = !game.iconP2.flipX;

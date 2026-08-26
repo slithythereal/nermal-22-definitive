@@ -8,6 +8,11 @@ function create() {
 function postCreate() {
 	bf.visible = false;
 	game.camGame.alpha = scoreTxt.alpha = missesTxt.alpha = accuracyTxt.alpha = 0;
+
+	if (FlxG.save.data.psychHUD) {
+		for (i in [timeText, timeBar, timeBarBG, psychScore])
+			i.visible = false;
+	}
 }
 
 function onSongStart() {
@@ -37,6 +42,11 @@ function beatHit(curBeat) {
 
 		for (i in [scoreTxt, accuracyTxt, missesTxt])
 			FlxTween.tween(i, {alpha: 1}, 0.5, {ease: FlxEase.linear});
+		if (FlxG.save.data.psychHUD) {
+			psychScore.visible = true;
+			psychScore.alpha = 0;
+			FlxTween.tween(psychScore, {alpha: 1}, 0.5, {ease: FlxEase.linear});
+		}
 	} else if (curBeat == 76) {
 		game.camGame.shake(0.3, 0.15);
 		game.camHUD.shake(0.3, 0.15);

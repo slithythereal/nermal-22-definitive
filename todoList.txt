@@ -1,6 +1,7 @@
 - Get gaymode note swing working (CANT WORK, SOMEONE FIX FOR ME PLEASE)
 - add game over screens (toggleable)
+    - bf shot game over
+    - nermal & nwrmal game over
 - add recharts (WIP) (SPECIFCALLY HURTNOTE)
 - abuse rechart (hurtnotes)
-- add psych engine ui (toggleable)
-- add old v2 ratings
+- finalize readme.md
