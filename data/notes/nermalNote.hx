@@ -6,6 +6,7 @@ var nermB:FlxSprite;
 var nermT:FlxSprite;
 var customScare:String = null;
 var modchart:Manager;
+var nermWall:FlxSpriteGroup<FlxSprite>;
 
 var customScareMap = [
 	'garfield' => {sound: "fard", noteSkin: 'GARFNOTES', jumpScare: 'garfield jumpscare'}
@@ -18,10 +19,13 @@ function create() {
 	if (PlayState.SONG.meta.customValues?.nermalNoteType != null && FlxG.save.data.customNermalNotes)
 		customScare = PlayState.SONG.meta.customValues?.nermalNoteType;
 
-	nermB = new FlxSprite(-400, 500);
-	add(nermB);
-	nermT = new FlxSprite(-400, -570);
-	add(nermT);
+	nermWall = new FlxSpriteGroup(-400, 0);
+	add(nermWall);
+
+	nermB = new FlxSprite(0, 500);
+	nermWall.add(nermB);
+	nermT = new FlxSprite(0, -570);
+	nermWall.add(nermT);
 	for (nermal in [nermB, nermT]) {
 		nermal.loadGraphic(Paths.image('game/mech/nermal jumpscare'));
 		if (customScare != null && customScareMap.exists(customScare) && FlxG.save.data.customNermalNotes)
@@ -29,9 +33,9 @@ function create() {
 				nermal.loadGraphic(Paths.image('game/mech/' + customScareMap[customScare].jumpScare));
 		nermal.scale.set(2, 0.5);
 		nermal.updateHitbox();
-		nermal.cameras = [camOther];
-		nermal.alpha = 0.001;
 	}
+	nermWall.cameras = [camOther];
+	nermWall.alpha = 0.001;
 	nermT.flipY = true;
 
 	if (FlxG.save.data.noteSwing && !FlxG.save.data.pussyMode) {
@@ -40,7 +44,8 @@ function create() {
 	}
 }
 
-var timers:Array<FlxTimer> = [];
+// var timers:Array<FlxTimer> = [];
+var wallTimer:FlxTimer;
 
 function onPlayerHit(event) {
 	if (event.noteType == 'nermalNote' && !FlxG.save.data.pussyMode) {
@@ -55,22 +60,14 @@ function onPlayerHit(event) {
 		camGame.shake(0.10, 0.5);
 		camHUD.shake(0.10, 0.5);
 
-		if (timers.length > 1) {
-			for (timer in timers) {
-				timer.cancel();
-				timers.remove(timer);
-			}
-		}
-		for (i in [nermB, nermT]) {
-			var timer:FlxTimer;
-			FlxTween.cancelTweensOf(i);
-			FlxTween.tween(i, {alpha: 1}, 1, {ease: FlxEase.bounceOut});
-			timer = new FlxTimer().start(7, function(tmr:FlxTimer) {
-				timers.remove(tmr);
-				FlxTween.tween(i, {alpha: 0.001}, 1, {ease: FlxEase.linear});
-			});
-			timers.push(timer);
-		}
+		if (wallTimer != null)
+			wallTimer.cancel();
+
+		FlxTween.cancelTweensOf(nermWall);
+		FlxTween.tween(nermWall, {alpha: 1}, 1, {ease: FlxEase.bounceOut});
+		wallTimer = new FlxTimer().start(7, function(tmr:FlxTimer) {
+			FlxTween.tween(nermWall, {alpha: 0.001}, 1, {ease: FlxEase.linear});
+		});
 	}
 }
 
@@ -84,8 +81,9 @@ function onPlayerMiss(event) {
 		note.destroy();
 	}
 }
+
 /*
-function postUpdate(e:Float) {
+	function postUpdate(e:Float) {
 	for (strumLine in strumLines.members) {
 		for (note in strumLine.notes) {
 			//trace(note.noteType);
@@ -97,25 +95,24 @@ function postUpdate(e:Float) {
 		}
 	}
 }*/
-
 function onNoteUpdate(e:NoteUpdateEvent) {
 	var note:Note = e.note;
 	if (note.noteType != "nermalNote")
 		return;
 
 	/*trace(note.offset.x);
-	note.updateNotesPosX = false;
-	var startWindow:Float = hitWindow * 0.5 + 255;
+		note.updateNotesPosX = false;
+		var startWindow:Float = hitWindow * 0.5 + 255;
 
-	var ogNote:Float = note.offset.x;
-	var timeUntilNote:Float = note.strumTime - Conductor.songPosition;
-	note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
+		var ogNote:Float = note.offset.x;
+		var timeUntilNote:Float = note.strumTime - Conductor.songPosition;
+		note.offset.x = note.y * Math.sin(Conductor.songPosition / 100) * 0.3;
 
-	FlxTween.num(note.offset.x, ogNote, timeUntilNote, {type:FlxTween.PINGPONG, ease:FlxEase.linear});
-	*/
-	//var curX:Float = note.x;
+		FlxTween.num(note.offset.x, ogNote, timeUntilNote, {type:FlxTween.PINGPONG, ease:FlxEase.linear});
+	 */
+	// var curX:Float = note.x;
 
-	//note.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
+	// note.y = note.y / -1 * Math.abs(Math.sin(Conductor.songPosition / 100 * 1));
 	/**
 		* 
 							if dadName == 'garfield' then
