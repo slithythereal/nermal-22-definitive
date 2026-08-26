@@ -3,6 +3,8 @@ import flixel.util.FlxStringUtil;
 import flixel.text.FlxTextBorderStyle;
 import funkin.backend.scripting.events.note.NoteHitEvent;
 
+using StringTools;
+
 importScript('data/scripts/HandyDandy');
 public var timeBarBG:FlxSprite;
 public var timeText:FlxText;
@@ -24,7 +26,11 @@ function create() {
 
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, Type.resolveEnum('flixel.ui.FlxBarFillDirection').LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8),
 			Std.int(timeBarBG.height - 8), null, "", 0, 1);
-		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
+		if (PlayState.SONG.meta.customValues?.timeColor != null) {
+			var colors:Array<String> = PlayState.SONG.meta.customValues?.timeColor.split(',');
+			timeBar.createFilledBar(FlxColor.fromString(colors[0]), FlxColor.fromString(colors[1]));
+		} else
+			timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
 		timeBar.updateBar();
 		timeBar.unbounded = true;
 		timeBar.numDivisions = 800;

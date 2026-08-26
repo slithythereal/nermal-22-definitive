@@ -1,7 +1,8 @@
 {
 	"customValues": {
 		"disableV2Ratings": "true",
-		"flipHealth": "true"
+		"flipHealth": "true",
+		"timeColor": "#000000,#e93fff"
 	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,

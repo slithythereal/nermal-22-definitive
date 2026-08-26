@@ -1,4 +1,8 @@
 {
+	"customValues": {
+		"timeColor": "#000000,#9e9e9e",
+		"hasWarningScreen": "true"
+	},
 	"opponentModeAllowed": false,
 	"difficulties": [
 		"gay"

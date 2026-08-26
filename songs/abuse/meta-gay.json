@@ -3,7 +3,8 @@
 		"noteSwing": "true",
 		"jumpscareNoteType": "scary",
 		"hasWarningScreen": "true",
-		"nermalNoteType": "garfield"
+		"nermalNoteType": "garfield",
+		"timeColor": "#000000,#FF7B00"
 	},
 	"color": "#9271FD",
 	"instSuffix": "-gay",

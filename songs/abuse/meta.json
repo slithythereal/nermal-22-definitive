@@ -2,7 +2,8 @@
 	"customValues": {
 		"hasWarningScreen": "true",
 		"jumpscareNoteType": "scary",
-		"nermalNoteType": "garfield"
+		"nermalNoteType": "garfield",
+		"timeColor":"#000000,#FF7B00"
 	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,

@@ -1,5 +1,7 @@
 {
-	"customValues": {},
+	"customValues": {
+		"timeColor": "#ffffff,#000000"
+	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [

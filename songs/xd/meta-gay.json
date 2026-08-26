@@ -1,4 +1,7 @@
 {
+	"customValues": {
+		"timeColor": "#000000,#9e9e9e"
+	},
 	"opponentModeAllowed": false,
 	"difficulties": [
 		"gay"
