@@ -15,7 +15,7 @@ From uncustomizable to customizable to your heart's content!
 This is a full recode of Nermal Nermal Nermallin' (2022) and a complete port from Psych Engine to Codename Engine. Now with a custom UI for the menus and a shipload of accessibility settings. From toggling the note textures to turning off individual game mechanics, the customizability is vast and open for you to play with. 
 
 ## What are the requirements to play this?
-This recode requires Codename Engine 1.0.1 and up to play!
+This recode requires Codename Engine pre-release 1.1.0-rc1 and up to play!
 <img width="1280" height="720" alt="cen" src="https://github.com/user-attachments/assets/b283a2fa-2bdf-44ec-8a3c-cd10f8ef6c72" />
 - Download [Codename Engine](https://codename-engine.com/)
 - Download this mod
@@ -29,12 +29,14 @@ Easy as that!
 ## Bounties?
 Believe it or not, but I am NOT a perfect programmer. There are some bugs and issues, but I can't find out how to fix them. Any fixed bug for this gets credited here!
 
-I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues tab.
+I have them pinned in the issues tab. Read [bounty.md](bounty.md) for more info.
 
 ## Questions
 ### What is new in this recode?
 - Fully rewritten code transfers (`.lua` -> `.hx`)
-- Fully custom UI for the Main Menu, Story Menu, and Freeplay Menu
+- Fully custom UI for the Freeplay Menu
+<img width="1264" height="715" alt="image" src="https://github.com/user-attachments/assets/e84aa981-6f70-4c97-8c8a-749d6c0ad173" />
+
 - A complete rework of the Warning Screens for the mechanics. Now static `ModSubState`s instead of graphics that show when the song starts
 - Recharts of every single song (except gay remixes), optional to play
 - New visible strums and notes for Garfield in Cutes
@@ -64,9 +66,9 @@ I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues
 - Psych Engine HUD: Turns on a remake of the Psych Engine HUD (use if you're clinically insane)
 
 ### Why a recode?
-The old mod is highly outdated, and I have significantly improved as a programmer since then, plus Psych Engine 0.6.2 is unoptimized and ancient. With the release of the [Nermallin' 2026 reboot](https://gamebanana.com/mods/694404) (which I work on as well), I figured that I should recode this mod to get a better understanding of what could come from my future coding, plus learning more about accessibility settings as well. 
+The old mod is quite dated, and I have significantly improved as a programmer since then. Psych Engine 0.6.2 is also unoptimized and quite old. With the release of the [Nermallin' 2026 reboot](https://gamebanana.com/mods/694404) (which I work on as well), I figured that I should recode this mod to get a better understanding of what could come from my future coding, plus learn more about accessibility settings as well. 
 
-Plus, there are some assets that we made during V2 development that I would've also loved to see in 2022 Nermal, such as the rating text and the icon remakes. (BOTH OF THESE ARE TOGGLEABLE IN OPTIONS)
+There are some assets that we made during V2 development that I would've also loved to see in 2022 Nermal, such as the rating text and the icon remakes. (BOTH OF THESE ARE TOGGLEABLE IN OPTIONS)
 <img width="1280" height="720" alt="nermthumby" src="https://github.com/user-attachments/assets/a40551f2-2588-4e98-a705-60e5d11b2a20" />
 Play [Nermal 2026](https://gamebanana.com/mods/694404)
 
@@ -93,4 +95,5 @@ DISCLAIMER: I have to keep this partially credited since some devs were excommun
 - Yellofry: Somewhat director, lead artist/animator, "lord sex" (idk what this title means, but ok!)
 - LeSlay: Nermal and Garfield chromatics
 - Lanzy: charter, partial programming
+- DizziGoober: Icons, promo art, menu art, voice of Nermal
 - Marxtalero: cutes BG
