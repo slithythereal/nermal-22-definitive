@@ -38,10 +38,13 @@ I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues
 - A complete rework of the Warning Screens for the mechanics. Now static `ModSubState`s instead of graphics that show when the song starts
 - Recharts of every single song (except gay remixes), optional to play
 - New visible strums and notes for Garfield in Cutes
-- Properly offsetted Angry Nermal left and right poses
+- Properly offset Angry Nermal left and right poses
+- Shrunk sprite sheet sizes thanks to [texture packer EX](https://kitzsh.github.io/tex-packer-ex/) (the difference is INSANE)
+<img width="1561" height="362" alt="image" src="https://github.com/user-attachments/assets/4fe45460-b4f7-43d4-8f54-2abf762fd791" />
 - Old V2 assets for Icons and Ratings, optional toggle
 - Freeplay lock until you beat the main week
 - LOTS OF ACCESSIBILITY SETTINGS
+
 ### What settings are toggleable in Options?
 ##### For Mechanics
 - Custom Nermal Notes: Toggle for the Nermal Note texture
@@ -69,7 +72,6 @@ Play [Nermal 2026](https://gamebanana.com/mods/694404)
 ### Will the Christmas Side-Date get a recode or get added here?
 This one is a huge maybe. I can definitely do it; however, I did not work on the Christmas Side-Date. If I were to do it, it'd probably be the only and last update to this repository outside of bugfixes before I publicly archive it.
 <img width="530" height="298" alt="NermalChristmas" src="https://github.com/user-attachments/assets/a27a959e-539c-4195-8a60-1918b60b763c" />
-
 
 ### Why Codename Engine?
 - First: This is the most up-to-date FNF engine that I spent the most time programming in (outside of pre-1.0 Psych).
