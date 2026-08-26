@@ -41,6 +41,7 @@ I have them in [bounty.md](bounty.md). Potential fixes can be sent in the Issues
 - Properly offset Angry Nermal left and right poses
 - Shrunk sprite sheet sizes thanks to [texture packer EX](https://kitzsh.github.io/tex-packer-ex/) (the difference is INSANE)
 <img width="1561" height="362" alt="image" src="https://github.com/user-attachments/assets/4fe45460-b4f7-43d4-8f54-2abf762fd791" />
+
 - Old V2 assets for Icons and Ratings, optional toggle
 - Freeplay lock until you beat the main week
 - LOTS OF ACCESSIBILITY SETTINGS
