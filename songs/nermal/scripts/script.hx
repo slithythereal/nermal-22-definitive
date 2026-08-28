@@ -1,3 +1,4 @@
+import funkin.backend.scripting.ModSubState;
 function focusOn(char, snap:Bool = false) {
 	var camPos = char.getCameraPosition();
 	PlayState.instance.camFollow.setPosition(camPos.x, camPos.y);
@@ -10,7 +11,7 @@ function postCreate() {
 		focusOn(dad);
 		inCutscene = persistentDraw = true;
 		persistentUpdate = false;
-		var modState:ModSubState = new ModSubState('nermal/substate/WarningScreen', {song: curSong.toLowerCase(), onClose: function(){
+		var modState:ModSubState = new ModSubState('nermal/substate/WarningScreen', {song: PlayState.instance.curSong.toLowerCase(), onClose: function(){
 			inCutscene = false;
 			PlayState.seenCutscene = persistentUpdate = persistentDraw = true;
 			startCountdown();

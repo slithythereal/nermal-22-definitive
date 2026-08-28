@@ -22,6 +22,7 @@ public var HandyDandy:T = {
 			songs: songArray,
 			difficulties: [difficulty]
 		}, difficulty);
+		trace(weekSongs + " " + difficulty);
 
 		FlxG.switchState(new PlayState());
 	},

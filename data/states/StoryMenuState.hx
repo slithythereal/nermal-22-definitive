@@ -2,7 +2,6 @@ importScript('data/scripts/HandyDandy');
 var variation:String = null;
 var rechartCheckbox:FunkinSprite;
 var rechartISCHECKED:Bool = false;
-
 var rechartUncheckedAlpha:Float = 0.5;
 var rechartText:FlxText;
 
@@ -38,14 +37,11 @@ function postUpdate(elapsed:Float) {
 		}
 		FlxG.sound.play(Paths.sound('editors/checkbox' + (rechartISCHECKED ? 'Checked' : 'Unchecked')));
 	}
-	if (controls.LEFT_P)
-		toggleCheckbox(-1);
-	else if (controls.RIGHT_P)
-		toggleCheckbox(1);
 }
 
-function toggleCheckbox(change:Int) {
-	var difficultyCuh:String = weeks[curWeek].difficulties[curDifficulty].toLowerCase();
+function onChangeDifficulty(event) {
+	var eventdiff = event.value;
+	var difficultyCuh:String = weeks[curWeek].difficulties[eventdiff].toLowerCase();
 	var localHasRecharts:Bool = diffData[difficultyCuh].hasRecharts;
 	rechartCheckbox.visible = rechartText.visible = localHasRecharts;
 	if (rechartISCHECKED && !localHasRecharts) {
@@ -58,6 +54,7 @@ function toggleCheckbox(change:Int) {
 }
 
 function onWeekSelect(event) {
+	var eventdiff:String = event.difficulty; // fix for week select
 	event.cancel();
 	canSelect = false;
 
@@ -67,7 +64,7 @@ function onWeekSelect(event) {
 			spr.playAnim('confirm', true, "LOCK");
 		});
 
-	var difficultyCuh:String = weeks[curWeek].difficulties[curDifficulty].toLowerCase();
+	var difficultyCuh:String = eventdiff.toLowerCase();
 	variation = (diffData[difficultyCuh].variation != null ? diffData[difficultyCuh].variation : null);
 
 	var rechart:String = (rechartISCHECKED ? "-rechart" : "");
@@ -78,8 +75,7 @@ function onWeekSelect(event) {
 		var songsLol:Array<String> = [];
 		for (song in weeks[curWeek].songs)
 			songsLol.push(song.name.toLowerCase());
-		HandyDandy.loadWeek(songsLol, weeks[curWeek].name.toLowerCase, weeks[curWeek].id.toLowerCase(), weeks[curWeek].difficulties[curDifficulty] + rechart,
-			variation);
+		HandyDandy.loadWeek(songsLol, weeks[curWeek].name.toLowerCase, weeks[curWeek].id.toLowerCase(), difficultyCuh + rechart, variation);
 	});
 	weekSprites.members[event.weekID].startFlashing();
 }

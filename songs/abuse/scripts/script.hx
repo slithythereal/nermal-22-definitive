@@ -45,7 +45,7 @@ function postCreate() {
 				garfJumpIn.visible = false;
 				dad.visible = bf.visible = true;
 				var modState:ModSubState = new ModSubState('nermal/substate/WarningScreen', {
-					song: curSong.toLowerCase(),
+					song: PlayState.instance.curSong.toLowerCase(),
 					onClose: function() {
 						inCutscene = false;
 						PlayState.seenCutscene = persistentUpdate = persistentDraw = game.camHUD.visible = true;
