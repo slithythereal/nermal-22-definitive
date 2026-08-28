@@ -15,6 +15,9 @@ function postCreate() {
 			iconP1.setIcon('new-icons/' + bf.xml.get('axelIcon'));
 	}
 
+	if(bf.xml.exists('gameOverScript'))
+		GameOverSubstate.script = 'data/scripts/' + bf.xml.get('gameOverScript');
+
 	if (FlxG.save.data.middlescroll && PlayState.SONG.meta.customValues?.forceMiddlescroll != 'true') {
 		for (playerStrum in playerStrums)
 			playerStrum.x = ((FlxG.width / 2) - (Note.swagWidth * 2)) + (Note.swagWidth * playerStrums.members.indexOf(playerStrum));

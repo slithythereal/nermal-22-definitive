@@ -1,9 +1,8 @@
 <!DOCTYPE codename-engine-character>
-<!-- Made with WizardMantis's Character Converter on https://codename-engine.com/ -->
-<character sprite="nwrmalSheet" icon="nwrmal" isPlayer="true" color="#808080" x="90" y="270" flipX="true" antialiasing="false" camx="20" camy="10" holdTime="6.1">
+<character x="90" y="270" sprite="nwrmalSheet" antialiasing="false" flipX="true" camx="20" camy="10" isPlayer="true" color="#808080" holdTime="6.1" gameOverScript="NermalGameOver">
 	<anim name="idle" anim="idle"/>
 	<anim name="singLEFT" anim="singLEFT" x="68" y="10"/>
-	<anim name="singDOWN" anim="singDOWN" x="-13" y="0"/>
+	<anim name="singDOWN" anim="singDOWN" x="-13"/>
 	<anim name="singUP" anim="singUP" x="-75" y="2"/>
 	<anim name="singRIGHT" anim="singRIGHT" x="-64" y="2"/>
 	<anim name="singLEFTmiss" anim="0singLEFTmiss" x="-6" y="14"/>

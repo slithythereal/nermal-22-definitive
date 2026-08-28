@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="30" y="280" sprite="angrynermal_assets" camx="-60" camy="120" isPlayer="true" icon="nerml" color="#A1A1A1" holdTime="6.1" axelIcon="nermlmad">
+<character x="30" y="280" sprite="angrynermal_assets" camx="-60" camy="120" isPlayer="true" icon="nerml" color="#A1A1A1" holdTime="6.1" gameOverScript="NermalGameOver" axelIcon="nermlmad">
 	<anim name="idle" anim="nermal idle dance"/>
 	<anim name="singUP" anim="nermal up pose" x="60" y="85"/>
 	<anim name="singDOWN" anim="nermal down pose" x="45" y="-99"/>
