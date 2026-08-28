@@ -26,10 +26,13 @@ This recode requires Codename Engine pre-release 1.1.0-rc1 and up to play!
 
 Easy as that!
 
+## Adding songs or difficulties
+Read [ADDSONGS.md](mds/ADDSONGS.md) for more info.
+
 ## Bounties?
 Believe it or not, but I am NOT a perfect programmer. There are some bugs and issues, but I can't find out how to fix them. Any fixed bug for this gets credited here!
 
-I have them pinned in the issues tab. Read [bounty.md](bounty.md) for more info.
+I have them pinned in the issues tab. Read [bounty.md](mds/bounty.md) for more info.
 
 ## Questions
 ### What is new in this recode?
