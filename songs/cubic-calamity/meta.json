@@ -12,7 +12,7 @@
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Cubic Calamity",
-	"needsVoices": false,
+	"needsVoices": true,
 	"beatsPerMeasure": 4,
 	"bpm": 155
 }
